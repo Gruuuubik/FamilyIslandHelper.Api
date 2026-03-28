@@ -1,7 +1,6 @@
 ﻿using FamilyIslandHelper.Api.Models.Abstract;
 using FamilyIslandHelper.Api.Models.Buildings_v2;
 using FamilyIslandHelper.Api.Models.Resources_v2;
-using System;
 using System.Collections.Generic;
 
 namespace FamilyIslandHelper.Api.Models.Items_v2
@@ -31,6 +30,20 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Iron(), 10),
 				(new Stone(), 12),
 				(new Wood(), 6)
+			};
+	}
+
+	public class Mercury : ProducibleItem
+	{
+		public override string Name => "Ртуть";
+		public override int LevelWhenAppears => 85;
+		public override Building BuildingToCreate => new AlchemistLaboratory();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+			{
+				(new Iron(), 15),
+				(new Stick(), 37),
+				(new Clay(), 30)
 			};
 	}
 }
