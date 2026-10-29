@@ -46,4 +46,18 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Clay(), 30)
 			};
 	}
+
+	public class GasCylinder : ProducibleItem
+	{
+		public override string Name => "Газовый баллон";
+		public override int LevelWhenAppears => 85;
+		public override Building BuildingToCreate => new AlchemistLaboratory();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+		{
+			(new Wood(), 18),
+			(new Stone(), 15),
+			(new Beams(), 3)
+		};
+	}
 }

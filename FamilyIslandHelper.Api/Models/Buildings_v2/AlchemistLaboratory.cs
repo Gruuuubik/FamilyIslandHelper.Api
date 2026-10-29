@@ -12,7 +12,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new Gold(),
 			new Emerald(),
-			new Mercury()
+			new Mercury(),
+			new GasCylinder()
 		};
 	}
 }
