@@ -27,7 +27,7 @@ Repo: [FamilyIslandHelper.Desktop](https://github.com/Gruuuubik/FamilyIslandHelp
 
 Repo: [FamilyIslandHelper.Web](https://github.com/Gruuuubik/FamilyIslandHelper.Web)
 
-Deployed web application: [gruuuubik.bsite.net](https://gruuuubik.bsite.net/)
+Deployed web application: [familyislandhelper.runasp.net](https://familyislandhelper.runasp.net/)
 
 
 ## Authors
