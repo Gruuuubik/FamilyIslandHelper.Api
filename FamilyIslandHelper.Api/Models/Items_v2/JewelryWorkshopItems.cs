@@ -45,4 +45,18 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Emerald(), 4)
 			};
 	}
+
+	public class SmallBox : ProducibleItem
+	{
+		public override string Name => "Шкатулка";
+		public override int LevelWhenAppears => 80;
+		public override Building BuildingToCreate => new JewelryWorkshop();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+		{
+			(new Rope(), 2),
+			(new Stick(), 18),
+			(new IronIngot(), 3)
+		};
+	}
 }

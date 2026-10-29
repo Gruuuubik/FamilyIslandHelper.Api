@@ -12,6 +12,8 @@ FamilyIslandHelper.Api.Models.Items_v2.GasCylinder
 FamilyIslandHelper.Api.Models.Items_v2.GasCylinder.GasCylinder() -> void
 FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment
 FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment.PaintedParchment() -> void
+FamilyIslandHelper.Api.Models.Items_v2.SmallBox
+FamilyIslandHelper.Api.Models.Items_v2.SmallBox.SmallBox() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Tiara
 FamilyIslandHelper.Api.Models.Items_v2.Tiara.Tiara() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Trough
@@ -42,6 +44,10 @@ override FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment.BuildingToCreat
 override FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment.LevelWhenAppears.get -> int
 override FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment.Name.get -> string
+override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
+override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
+override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.LevelWhenAppears.get -> int
+override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.Name.get -> string
 override FamilyIslandHelper.Api.Models.Items_v2.Tiara.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
 override FamilyIslandHelper.Api.Models.Items_v2.Tiara.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.Tiara.LevelWhenAppears.get -> int

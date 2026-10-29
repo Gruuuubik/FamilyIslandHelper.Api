@@ -11,7 +11,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new Earrings(),
 			new Bracelet(),
-			new Tiara()
+			new Tiara(),
+			new SmallBox()
 		};
 	}
 }
