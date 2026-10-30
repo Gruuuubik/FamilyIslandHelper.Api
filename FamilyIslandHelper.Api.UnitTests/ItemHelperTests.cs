@@ -168,22 +168,36 @@ namespace FamilyIslandHelper.Api.UnitTests
 			Assert.Equal(expectedNamesCount, actualNames.Count);
 		}
 
-		public static IEnumerable<object[]> GetAllItemsNames_TestData()
+		public static IEnumerable<object[]> ApiVersions()
 		{
-			yield return new object[] { ApiVersion.v1, "Pottery", new[] { "Amphora", "Bowl", "Flashlight", "Jug", "Pot" } };
-			yield return new object[] { ApiVersion.v2, "Pottery", new[] { "Amphora", "Bowl", "Jug", "Pot" } };
+			yield return new object[] { ApiVersion.v1 };
+			yield return new object[] { ApiVersion.v2 };
 		}
 
 		[Theory]
-		[MemberData(nameof(GetAllItemsNames_TestData))]
-		public void When_GetAllItemsNames_Then_AllItemsHavePictures(ApiVersion apiVersion, string buildingClassName, IEnumerable<string> itemsNames)
+		[MemberData(nameof(ApiVersions))]
+		public void When_GetAllItemsOfAllBuildings_Then_AllItemsHavePictures(ApiVersion apiVersion)
 		{
-			itemHelper = new ItemHelper(apiVersion);
+			var buildingHelper = new BuildingHelper(apiVersion);
+			var itemHelper = new ItemHelper(apiVersion);
+			var missing = new List<string>();
 
-			foreach (var itemName in itemsNames)
+			foreach (var building in buildingHelper.GetBuildingsNames())
 			{
-				Assert.NotNull(itemHelper.GetItemImageByName(buildingClassName, itemName));
+				foreach (var item in buildingHelper.GetItemsOfBuilding(building))
+				{
+					try
+					{
+						using var stream = itemHelper.GetItemImageStreamByName(building, item);
+					}
+					catch (NullReferenceException)
+					{
+						missing.Add($"{building}/{item}");
+					}
+				}
 			}
+
+			Assert.True(missing.Count == 0, "Missing pictures: " + string.Join(", ", missing));
 		}
 	}
 }

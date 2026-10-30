@@ -60,14 +60,14 @@ namespace FamilyIslandHelper.Api.UnitTests
 			}
 		}
 
-		public static IEnumerable<object[]> GetAllBuildingsNames_TestData()
+		public static IEnumerable<object[]> ApiVersions_TestData()
 		{
 			yield return new object[] { ApiVersion.v1 };
 			yield return new object[] { ApiVersion.v2 };
 		}
 
 		[Theory]
-		[MemberData(nameof(GetAllBuildingsNames_TestData))]
+		[MemberData(nameof(ApiVersions_TestData))]
 		public void When_GetAllBuildingsNames_Then_AllBuildingsHavePictures(ApiVersion apiVersion)
 		{
 			buildingHelper = new BuildingHelper(apiVersion);
@@ -77,6 +77,55 @@ namespace FamilyIslandHelper.Api.UnitTests
 			{
 				Assert.NotNull(buildingHelper.GetBuildingImageByName(buildingName));
 			}
+		}
+
+		[Theory]
+		[MemberData(nameof(ApiVersions_TestData))]
+		public void When_GetAllItems_Then_ComponentsBelongToSameApiVersion(ApiVersion apiVersion)
+		{
+			var suffix = apiVersion == ApiVersion.v1 ? string.Empty : "_v2";
+			var allowed = new[]
+			{
+				$"FamilyIslandHelper.Api.Models.Items{suffix}",
+				$"FamilyIslandHelper.Api.Models.Resources{suffix}"
+			};
+			var buildingHelper = new BuildingHelper(apiVersion);
+			var wrong = new List<string>();
+
+			foreach (var buildingName in buildingHelper.GetBuildingsNames())
+			{
+				foreach (var item in buildingHelper.CreateBuilding(buildingName).Items)
+				{
+					foreach (var (component, _) in item.Components)
+					{
+						if (!allowed.Contains(component.GetType().Namespace))
+						{
+							wrong.Add($"{buildingName}/{item.GetType().Name} -> {component.GetType().FullName}");
+						}
+					}
+				}
+			}
+
+			Assert.True(wrong.Count == 0, string.Join(Environment.NewLine, wrong));
+		}
+
+		[Theory]
+		[MemberData(nameof(ApiVersions_TestData))]
+		public void When_CheckEmbeddedPictures_Then_NoOrphanItemPictures(ApiVersion apiVersion)
+		{
+			var prefix = apiVersion == ApiVersion.v1 ? "" : "_v2";
+			var picturesRoot = $"FamilyIslandHelper.Api.Pictures{prefix}.Items.";
+			var buildingHelper = new BuildingHelper(apiVersion);
+
+			var expected = buildingHelper.GetBuildingsNames()
+				.SelectMany(b => buildingHelper.GetItemsOfBuilding(b).Select(i => $"{picturesRoot}{b}.{i}.png"))
+				.ToHashSet();
+
+			var actual = typeof(ItemHelper).Assembly.GetManifestResourceNames()
+				.Where(n => n.StartsWith(picturesRoot))
+				.ToHashSet();
+
+			Assert.Empty(actual.Except(expected));
 		}
 
 #if WINDOWS
