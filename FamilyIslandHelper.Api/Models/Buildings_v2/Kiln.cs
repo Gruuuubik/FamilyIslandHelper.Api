@@ -11,7 +11,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new BurntBrick(),
 			new Shingles(),
-			new Cup()
+			new Cup(),
+			new Plate()
 		};
 	}
 }
