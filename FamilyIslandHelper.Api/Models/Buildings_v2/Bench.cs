@@ -12,7 +12,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new BuildingTimber(),
 			new Barrel(),
-			new Trough()
+			new Trough(),
+			new BrightBoomerang()
 		};
 	}
 }

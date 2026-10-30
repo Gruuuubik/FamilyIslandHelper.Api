@@ -46,4 +46,18 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Stone(), 25)
 			};
 	}
+
+	public class BrightBoomerang : ProducibleItem
+	{
+		public override string Name => "Яркий бумеранг";
+		public override int LevelWhenAppears => 87;
+		public override Building BuildingToCreate => new Bench();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+			{
+				(new Wood(), 22),
+				(new Stone(), 22),
+				(new Clay(), 25)
+			};
+	}
 }
