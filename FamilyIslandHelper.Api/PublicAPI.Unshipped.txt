@@ -1,4 +1,6 @@
-﻿FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop
+﻿FamilyIslandHelper.Api.Models.Buildings_v2.Building1
+FamilyIslandHelper.Api.Models.Buildings_v2.Building1.Building1() -> void
+FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop
 FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.GlassWorkshop() -> void
 FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner
 FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner.HobbyCorner() -> void
@@ -24,6 +26,8 @@ FamilyIslandHelper.Api.Models.Items_v2.Trough
 FamilyIslandHelper.Api.Models.Items_v2.Trough.Trough() -> void
 FamilyIslandHelper.Api.Models.Items_v2.WoodenBeam
 FamilyIslandHelper.Api.Models.Items_v2.WoodenBeam.WoodenBeam() -> void
+override FamilyIslandHelper.Api.Models.Buildings_v2.Building1.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
+override FamilyIslandHelper.Api.Models.Buildings_v2.Building1.Name.get -> string
 override FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
 override FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.Name.get -> string
 override FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
