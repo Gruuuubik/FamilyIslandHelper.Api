@@ -18,4 +18,18 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Clay(), 30)
 			};
 	}
+
+	internal class Lenses : ProducibleItem
+	{
+		public override string Name => "Линзы";
+		public override int LevelWhenAppears => 110;
+		public override Building BuildingToCreate => new GlassWorkshop();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+			{
+				(new Coal(), 3),
+				(new Glass(), 30),
+				(new Iron(), 15)
+			};
+	}
 }

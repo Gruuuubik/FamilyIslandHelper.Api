@@ -1,4 +1,5 @@
 ﻿using FamilyIslandHelper.Api.Helpers;
+using FluentAssertions;
 using Xunit;
 
 namespace FamilyIslandHelper.Api.UnitTests
@@ -9,7 +10,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		[Theory]
 		[InlineData(ApiVersion.v1, 13)]
-		[InlineData(ApiVersion.v2, 23)]
+		[InlineData(ApiVersion.v2, 30)]
 		public void When_GetBuildingsClasses_Then_ReturnCorrectCollection(ApiVersion apiVersion, int expectedCount)
 		{
 			buildingHelper = new BuildingHelper(apiVersion);
@@ -75,7 +76,8 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 			foreach (var buildingName in buildingsNames)
 			{
-				Assert.NotNull(buildingHelper.GetBuildingImageByName(buildingName));
+				Console.WriteLine($"Checking picture for building: {buildingName}");
+				buildingHelper.GetBuildingImageByName(buildingName).Should().NotBeNull();
 			}
 		}
 
@@ -106,7 +108,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 				}
 			}
 
-			Assert.True(wrong.Count == 0, string.Join(Environment.NewLine, wrong));
+			wrong.Should().BeEmpty();
 		}
 
 		[Theory]
@@ -125,7 +127,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 				.Where(n => n.StartsWith(picturesRoot))
 				.ToHashSet();
 
-			Assert.Empty(actual.Except(expected));
+			actual.Should().BeEquivalentTo(expected);
 		}
 
 #if WINDOWS

@@ -20,7 +20,7 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 
 	public class Pot : ProducibleItem
 	{
-		public override string Name => "Горшок";
+		public override string Name => "Глиняный горшок";
 		public override int LevelWhenAppears => 18;
 		public override Building BuildingToCreate => new Pottery();
 

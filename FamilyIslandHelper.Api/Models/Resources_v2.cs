@@ -105,4 +105,10 @@ namespace FamilyIslandHelper.Api.Models.Resources_v2
 		//165 energy for 7
 		public override int EnergyCost => 24;
 	}
+
+	[ExcludeFromCodeCoverage]
+	public class Blueberry : ZeroCostResourceItem
+	{
+		public override string Name => "Черника";
+	}
 }

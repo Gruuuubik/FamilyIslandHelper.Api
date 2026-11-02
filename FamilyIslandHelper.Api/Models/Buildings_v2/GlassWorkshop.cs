@@ -10,7 +10,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
-			new StainedGlass()
+			new StainedGlass(),
+			new Lenses()
 		};
 	}
 }

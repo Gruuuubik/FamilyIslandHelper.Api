@@ -9,7 +9,10 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		public override string Name => "Мастерская шамана";
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
-			new Ocher()
+			new GemNecklace(),
+			new Rune(),
+			new Amulet(),
+			new DreamCatcher()
 		};
 	}
 }
