@@ -1,4 +1,6 @@
-﻿FamilyIslandHelper.Api.Models.Buildings_v2.Building1
+﻿FamilyIslandHelper.Api.Models.Buildings_v2.Apiary
+FamilyIslandHelper.Api.Models.Buildings_v2.Apiary.Apiary() -> void
+FamilyIslandHelper.Api.Models.Buildings_v2.Building1
 FamilyIslandHelper.Api.Models.Buildings_v2.Building1.Building1() -> void
 FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop
 FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.GlassWorkshop() -> void
@@ -8,10 +10,14 @@ FamilyIslandHelper.Api.Models.Buildings_v2.Sewing
 FamilyIslandHelper.Api.Models.Buildings_v2.Sewing.Sewing() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Apron
 FamilyIslandHelper.Api.Models.Items_v2.Apron.Apron() -> void
+FamilyIslandHelper.Api.Models.Items_v2.BeesWax
+FamilyIslandHelper.Api.Models.Items_v2.BeesWax.BeesWax() -> void
 FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang
 FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.BrightBoomerang() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Cup
 FamilyIslandHelper.Api.Models.Items_v2.Cup.Cup() -> void
+FamilyIslandHelper.Api.Models.Items_v2.Honey
+FamilyIslandHelper.Api.Models.Items_v2.Honey.Honey() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Lock
 FamilyIslandHelper.Api.Models.Items_v2.Lock.Lock() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Mercury
@@ -22,6 +28,8 @@ FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment
 FamilyIslandHelper.Api.Models.Items_v2.PaintedParchment.PaintedParchment() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Plate
 FamilyIslandHelper.Api.Models.Items_v2.Plate.Plate() -> void
+FamilyIslandHelper.Api.Models.Items_v2.Pollen
+FamilyIslandHelper.Api.Models.Items_v2.Pollen.Pollen() -> void
 FamilyIslandHelper.Api.Models.Items_v2.SmallBox
 FamilyIslandHelper.Api.Models.Items_v2.SmallBox.SmallBox() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Tiara
@@ -30,6 +38,8 @@ FamilyIslandHelper.Api.Models.Items_v2.Trough
 FamilyIslandHelper.Api.Models.Items_v2.Trough.Trough() -> void
 FamilyIslandHelper.Api.Models.Items_v2.WoodenBeam
 FamilyIslandHelper.Api.Models.Items_v2.WoodenBeam.WoodenBeam() -> void
+override FamilyIslandHelper.Api.Models.Buildings_v2.Apiary.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
+override FamilyIslandHelper.Api.Models.Buildings_v2.Apiary.Name.get -> string
 override FamilyIslandHelper.Api.Models.Buildings_v2.Building1.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
 override FamilyIslandHelper.Api.Models.Buildings_v2.Building1.Name.get -> string
 override FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
@@ -42,6 +52,10 @@ override FamilyIslandHelper.Api.Models.Items_v2.Apron.BuildingToCreate.get -> Fa
 override FamilyIslandHelper.Api.Models.Items_v2.Apron.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.Apron.LevelWhenAppears.get -> int
 override FamilyIslandHelper.Api.Models.Items_v2.Apron.Name.get -> string
+override FamilyIslandHelper.Api.Models.Items_v2.BeesWax.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
+override FamilyIslandHelper.Api.Models.Items_v2.BeesWax.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
+override FamilyIslandHelper.Api.Models.Items_v2.BeesWax.LevelWhenAppears.get -> int
+override FamilyIslandHelper.Api.Models.Items_v2.BeesWax.Name.get -> string
 override FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
 override FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.LevelWhenAppears.get -> int
@@ -50,6 +64,10 @@ override FamilyIslandHelper.Api.Models.Items_v2.Cup.BuildingToCreate.get -> Fami
 override FamilyIslandHelper.Api.Models.Items_v2.Cup.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.Cup.LevelWhenAppears.get -> int
 override FamilyIslandHelper.Api.Models.Items_v2.Cup.Name.get -> string
+override FamilyIslandHelper.Api.Models.Items_v2.Honey.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
+override FamilyIslandHelper.Api.Models.Items_v2.Honey.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
+override FamilyIslandHelper.Api.Models.Items_v2.Honey.LevelWhenAppears.get -> int
+override FamilyIslandHelper.Api.Models.Items_v2.Honey.Name.get -> string
 override FamilyIslandHelper.Api.Models.Items_v2.Lock.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
 override FamilyIslandHelper.Api.Models.Items_v2.Lock.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.Lock.LevelWhenAppears.get -> int
@@ -70,6 +88,10 @@ override FamilyIslandHelper.Api.Models.Items_v2.Plate.BuildingToCreate.get -> Fa
 override FamilyIslandHelper.Api.Models.Items_v2.Plate.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.Plate.LevelWhenAppears.get -> int
 override FamilyIslandHelper.Api.Models.Items_v2.Plate.Name.get -> string
+override FamilyIslandHelper.Api.Models.Items_v2.Pollen.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
+override FamilyIslandHelper.Api.Models.Items_v2.Pollen.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
+override FamilyIslandHelper.Api.Models.Items_v2.Pollen.LevelWhenAppears.get -> int
+override FamilyIslandHelper.Api.Models.Items_v2.Pollen.Name.get -> string
 override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
 override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.SmallBox.LevelWhenAppears.get -> int
