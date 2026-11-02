@@ -4,6 +4,10 @@ FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop
 FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.GlassWorkshop() -> void
 FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner
 FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner.HobbyCorner() -> void
+FamilyIslandHelper.Api.Models.Buildings_v2.Sewing
+FamilyIslandHelper.Api.Models.Buildings_v2.Sewing.Sewing() -> void
+FamilyIslandHelper.Api.Models.Items_v2.Apron
+FamilyIslandHelper.Api.Models.Items_v2.Apron.Apron() -> void
 FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang
 FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.BrightBoomerang() -> void
 FamilyIslandHelper.Api.Models.Items_v2.Cup
@@ -32,6 +36,12 @@ override FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.Items.get -> S
 override FamilyIslandHelper.Api.Models.Buildings_v2.GlassWorkshop.Name.get -> string
 override FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
 override FamilyIslandHelper.Api.Models.Buildings_v2.HobbyCorner.Name.get -> string
+override FamilyIslandHelper.Api.Models.Buildings_v2.Sewing.Items.get -> System.Collections.Generic.List<FamilyIslandHelper.Api.Models.Abstract.ProducibleItem>
+override FamilyIslandHelper.Api.Models.Buildings_v2.Sewing.Name.get -> string
+override FamilyIslandHelper.Api.Models.Items_v2.Apron.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
+override FamilyIslandHelper.Api.Models.Items_v2.Apron.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
+override FamilyIslandHelper.Api.Models.Items_v2.Apron.LevelWhenAppears.get -> int
+override FamilyIslandHelper.Api.Models.Items_v2.Apron.Name.get -> string
 override FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.BuildingToCreate.get -> FamilyIslandHelper.Api.Models.Abstract.Building
 override FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.Components.get -> System.Collections.Generic.List<(FamilyIslandHelper.Api.Models.Abstract.Item item, int count)>
 override FamilyIslandHelper.Api.Models.Items_v2.BrightBoomerang.LevelWhenAppears.get -> int
