@@ -1,4 +1,6 @@
-﻿namespace FamilyIslandHelper.Api
+﻿using System;
+
+namespace FamilyIslandHelper.Api
 {
 	/// <summary>
 	/// Versions of API.
@@ -8,6 +10,7 @@
 		/// <summary>
 		/// Represents an API before update 10.2024.
 		/// </summary>
+		[Obsolete("API v.1 is not supported. Use API v.2.")]
 		v1,
 
 		/// <summary>

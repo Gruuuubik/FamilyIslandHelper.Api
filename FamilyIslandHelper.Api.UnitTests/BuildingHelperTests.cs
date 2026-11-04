@@ -9,7 +9,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 		private BuildingHelper buildingHelper;
 
 		[Theory]
-		[InlineData(ApiVersion.v1, 13)]
 		[InlineData(ApiVersion.v2, 30)]
 		public void When_GetBuildingsClasses_Then_ReturnCorrectCollection(ApiVersion apiVersion, int expectedCount)
 		{
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v1, "Mill", new[] { "GoatFood", "ChickenFood", "Ocher", "Flour", "SunflowerOil", "Syrup", "CowFood" })]
 		[InlineData(ApiVersion.v2, "Forge", new[] { "Needle", "Hammer", "Glass", "Lock" })]
 		public void When_TryToGetItemsOfBuilding_Then_ReturnCorrectItems(ApiVersion apiVersion, string buildingName, IEnumerable<string> expectedItems)
 		{
@@ -37,7 +35,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 		[InlineData("buildingName")]
 		public void When_CreateBuildingWithNullParameter_Then_ThrowsException(string expectedParamName)
 		{
-			buildingHelper = new BuildingHelper(ApiVersion.v1);
+			buildingHelper = new BuildingHelper(ApiVersion.v2);
 
 			var exception = Assert.Throws<ArgumentNullException>(() => buildingHelper.CreateBuilding(null));
 
@@ -45,7 +43,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v1)]
 		[InlineData(ApiVersion.v2)]
 		public void When_CheckBuildingToCreateForAllItems_Then_ReturnCorrectValue(ApiVersion apiVersion)
 		{
@@ -63,7 +60,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		public static IEnumerable<object[]> ApiVersions_TestData()
 		{
-			yield return new object[] { ApiVersion.v1 };
 			yield return new object[] { ApiVersion.v2 };
 		}
 
@@ -85,7 +81,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 		[MemberData(nameof(ApiVersions_TestData))]
 		public void When_GetAllItems_Then_ComponentsBelongToSameApiVersion(ApiVersion apiVersion)
 		{
-			var suffix = apiVersion == ApiVersion.v1 ? string.Empty : "_v2";
+			var suffix = "_v2";
 			var allowed = new[]
 			{
 				$"FamilyIslandHelper.Api.Models.Items{suffix}",
@@ -115,7 +111,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 		[MemberData(nameof(ApiVersions_TestData))]
 		public void When_CheckEmbeddedPictures_Then_NoOrphanItemPictures(ApiVersion apiVersion)
 		{
-			var prefix = apiVersion == ApiVersion.v1 ? "" : "_v2";
+			var prefix = "_v2";
 			var picturesRoot = $"FamilyIslandHelper.Api.Pictures{prefix}.Items.";
 			var buildingHelper = new BuildingHelper(apiVersion);
 

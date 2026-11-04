@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 
 namespace FamilyIslandHelper.Api.Helpers
@@ -10,8 +11,13 @@ namespace FamilyIslandHelper.Api.Helpers
 
 		protected BaseHelper(ApiVersion apiVersion)
 		{
+			if (apiVersion == ApiVersion.v1)
+			{
+				throw new NotSupportedException("API v.1 is not supported. Use API v.2.");
+			}
+
 			Assembly = Assembly.GetExecutingAssembly();
-			Prefix = apiVersion == ApiVersion.v1 ? string.Empty : "_v2";
+			Prefix = "_v2";
 
 			FolderWithPictures = $"Pictures{Prefix}";
 		}
