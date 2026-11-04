@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 
 namespace FamilyIslandHelper.Api.Helpers
@@ -11,7 +12,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		protected BaseHelper(ApiVersion apiVersion)
 		{
 			Assembly = Assembly.GetExecutingAssembly();
-			Prefix = apiVersion == ApiVersion.v1 ? string.Empty : "_v2";
+			Prefix = "_v2";
 
 			FolderWithPictures = $"Pictures{Prefix}";
 		}

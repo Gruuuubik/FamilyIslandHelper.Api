@@ -1,7 +1,7 @@
 ﻿using FamilyIslandHelper.Api.Helpers;
 using FamilyIslandHelper.Api.Models.Abstract;
-using FamilyIslandHelper.Api.Models.Items;
-using FamilyIslandHelper.Api.Models.Resources;
+using FamilyIslandHelper.Api.Models.Items_v2;
+using FamilyIslandHelper.Api.Models.Resources_v2;
 using Xunit;
 
 namespace FamilyIslandHelper.Api.UnitTests
@@ -12,11 +12,10 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		public ItemHelperTests()
 		{
-			itemHelper = new ItemHelper(ApiVersion.v1);
+			itemHelper = new ItemHelper(ApiVersion.v2);
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v1)]
 		[InlineData(ApiVersion.v2)]
 		public void When_GetResourcesNames_Then_AllResourcesHavePictures(ApiVersion apiVersion)
 		{
@@ -40,10 +39,8 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v1, "Lace", typeof(Lace))]
-		[InlineData(ApiVersion.v2, "Lace", typeof(Models.Items_v2.Lace))]
-		[InlineData(ApiVersion.v1, "Stone", typeof(Stone))]
-		[InlineData(ApiVersion.v2, "Stone", typeof(Models.Resources_v2.Stone))]
+		[InlineData(ApiVersion.v2, "Lace", typeof(Lace))]
+		[InlineData(ApiVersion.v2, "Stone", typeof(Stone))]
 		public void When_FindItemByName_Then_ReturnCorrectItem(ApiVersion apiVersion, string itemName, Type expectedItemType)
 		{
 			itemHelper = new ItemHelper(apiVersion);
@@ -63,7 +60,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v1, "Lace", typeof(Lace))]
 		[InlineData(ApiVersion.v2, "Lace", typeof(Models.Items_v2.Lace))]
 		public void When_TryToCreateProducibleItem_Then_ReturnCorrectProducibleItem(ApiVersion apiVersion, string itemTypeString, Type expectedItemType)
 		{
@@ -109,8 +105,8 @@ namespace FamilyIslandHelper.Api.UnitTests
 			yield return new object[] { new Lace(), new Lace(),
 				"1 'Шнурок' и 1 'Шнурок' равны по энергии." };
 
-			yield return new object[] { new Rope(), new Wattle(),
-				"1 'Верёвка' выгоднее, чем 1 'Плетень' по энергии." };
+			yield return new object[] { new Wattle(), new Rope(),
+				"1 'Плетень' выгоднее, чем 1 'Верёвка' по энергии." };
 		}
 
 		[Theory]
@@ -127,16 +123,16 @@ namespace FamilyIslandHelper.Api.UnitTests
 			yield return new object[] { "Lace", 1, false,
 				new List<string>
 				{
-					"Шнурок(4 энергии)"
+					"Шнурок(6 энергии)"
 				}
 			};
 
 			yield return new object[] { "Lace", 1, true,
 				new List<string>
 				{
-					"Шнурок(4 энергии)",
+					"Шнурок(6 энергии)",
 					"",
-					"Components:", "\tТрава(2 энергии) - 2 шт."
+					"Components:", "\tТрава(2 энергии) - 3 шт."
 				}
 			};
 		}
@@ -151,7 +147,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData("Loom", "Lace", new[] { "Pictures", "Items", "Loom", "Lace.png" })]
+		[InlineData("Loom", "Lace", new[] { "Pictures_v2", "Items", "Loom", "Lace.png" })]
 		public void When_GetBuildingImagePathByName_Then_ReturnCorrectValue(string buildingName, string itemName, string[] expectedPath)
 		{
 			var actualPath = itemHelper.GetItemImagePathByName(buildingName, itemName);
@@ -160,7 +156,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(43)]
+		[InlineData(16)]
 		public void When_GetResourcesNames_Then_ReturnCorrectValue(int expectedNamesCount)
 		{
 			var actualNames = itemHelper.GetResourcesNames();
@@ -170,7 +166,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		public static IEnumerable<object[]> ApiVersions()
 		{
-			yield return new object[] { ApiVersion.v1 };
 			yield return new object[] { ApiVersion.v2 };
 		}
 
