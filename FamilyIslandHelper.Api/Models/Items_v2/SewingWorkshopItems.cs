@@ -1,7 +1,6 @@
 ﻿using FamilyIslandHelper.Api.Models.Abstract;
 using FamilyIslandHelper.Api.Models.Buildings_v2;
 using FamilyIslandHelper.Api.Models.Resources_v2;
-using System;
 using System.Collections.Generic;
 
 namespace FamilyIslandHelper.Api.Models.Items_v2
@@ -9,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Wattle : ProducibleItem
 	{
 		public override string Name => "Плетень";
-		public override int LevelWhenAppears => 4;
 		public override Building BuildingToCreate => new SewingWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +20,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Sackcloth : ProducibleItem
 	{
 		public override string Name => "Мешковина";
-		public override int LevelWhenAppears => 10;
 		public override Building BuildingToCreate => new SewingWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -36,7 +33,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Gloves : ProducibleItem
 	{
 		public override string Name => "Перчатки";
-		public override int LevelWhenAppears => 15;
 		public override Building BuildingToCreate => new SewingWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -49,7 +45,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Cloth : ProducibleItem
 	{
 		public override string Name => "Ткань";
-		public override int LevelWhenAppears => 38;
 		public override Building BuildingToCreate => new SewingWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

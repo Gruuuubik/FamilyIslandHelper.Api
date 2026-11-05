@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class StainedGlass : ProducibleItem
 	{
 		public override string Name => "Витраж";
-		public override int LevelWhenAppears => 100;
 		public override Building BuildingToCreate => new GlassWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class Lenses : ProducibleItem
 	{
 		public override string Name => "Линзы";
-		public override int LevelWhenAppears => 110;
 		public override Building BuildingToCreate => new GlassWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

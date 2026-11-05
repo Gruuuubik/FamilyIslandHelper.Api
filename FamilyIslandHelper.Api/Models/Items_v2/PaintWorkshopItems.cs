@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Ocher : ProducibleItem
 	{
 		public override string Name => "Охра";
-		public override int LevelWhenAppears => 40;
 		public override Building BuildingToCreate => new PaintWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class BluePaint : ProducibleItem
 	{
 		public override string Name => "Синяя краска";
-		public override int LevelWhenAppears => 55;
 		public override Building BuildingToCreate => new PaintWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -36,7 +34,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class YellowPaint : ProducibleItem
 	{
 		public override string Name => "Желтая краска";
-		public override int LevelWhenAppears => 80;
 		public override Building BuildingToCreate => new PaintWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

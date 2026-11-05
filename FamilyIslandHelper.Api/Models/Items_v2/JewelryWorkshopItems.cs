@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Earrings : ProducibleItem
 	{
 		public override string Name => "Серьги";
-		public override int LevelWhenAppears => 37;
 		public override Building BuildingToCreate => new JewelryWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Bracelet : ProducibleItem
 	{
 		public override string Name => "Браслет";
-		public override int LevelWhenAppears => 60;
 		public override Building BuildingToCreate => new JewelryWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -36,7 +34,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Tiara : ProducibleItem
 	{
 		public override string Name => "Тиара";
-		public override int LevelWhenAppears => 65;
 		public override Building BuildingToCreate => new JewelryWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -49,7 +46,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class SmallBox : ProducibleItem
 	{
 		public override string Name => "Шкатулка";
-		public override int LevelWhenAppears => 80;
 		public override Building BuildingToCreate => new JewelryWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

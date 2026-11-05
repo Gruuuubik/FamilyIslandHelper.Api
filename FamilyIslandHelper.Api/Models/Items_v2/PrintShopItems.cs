@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class Book : ProducibleItem
 	{
 		public override string Name => "Книга";
-		public override int LevelWhenAppears => 85;
 		public override Building BuildingToCreate => new PrintShop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class BottleOfInk : ProducibleItem
 	{
 		public override string Name => "Бутылка с чернилами";
-		public override int LevelWhenAppears => 98;
 		public override Building BuildingToCreate => new PrintShop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

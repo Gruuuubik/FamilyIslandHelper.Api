@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class BuildingTimber : ProducibleItem
 	{
 		public override string Name => "Строительный брус";
-		public override int LevelWhenAppears => 1;
 		public override Building BuildingToCreate => new Bench();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Barrel : ProducibleItem
 	{
 		public override string Name => "Бочка";
-		public override int LevelWhenAppears => 40;
 		public override Building BuildingToCreate => new Bench();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -36,7 +34,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Trough : ProducibleItem
 	{
 		public override string Name => "Корыто";
-		public override int LevelWhenAppears => 80;
 		public override Building BuildingToCreate => new Bench();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -50,7 +47,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class BrightBoomerang : ProducibleItem
 	{
 		public override string Name => "Яркий бумеранг";
-		public override int LevelWhenAppears => 87;
 		public override Building BuildingToCreate => new Bench();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

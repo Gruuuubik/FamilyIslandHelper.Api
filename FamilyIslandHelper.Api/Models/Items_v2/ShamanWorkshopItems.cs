@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class GemNecklace : ProducibleItem
 	{
 		public override string Name => "Ожерелье";
-		public override int LevelWhenAppears => 30;
 		public override Building BuildingToCreate => new ShamanWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Rune : ProducibleItem
 	{
 		public override string Name => "Руна";
-		public override int LevelWhenAppears => 35;
 		public override Building BuildingToCreate => new ShamanWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -36,7 +34,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Amulet : ProducibleItem
 	{
 		public override string Name => "Амулет";
-		public override int LevelWhenAppears => 52;
 		public override Building BuildingToCreate => new ShamanWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -50,7 +47,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class DreamCatcher : ProducibleItem
 	{
 		public override string Name => "Ловец снов";
-		public override int LevelWhenAppears => 76;
 		public override Building BuildingToCreate => new ShamanWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

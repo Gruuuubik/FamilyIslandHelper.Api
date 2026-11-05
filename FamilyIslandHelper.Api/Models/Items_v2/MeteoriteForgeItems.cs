@@ -1,7 +1,6 @@
 ﻿using FamilyIslandHelper.Api.Models.Abstract;
 using FamilyIslandHelper.Api.Models.Buildings_v2;
 using FamilyIslandHelper.Api.Models.Resources_v2;
-using System;
 using System.Collections.Generic;
 
 namespace FamilyIslandHelper.Api.Models.Items_v2
@@ -9,21 +8,19 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Nails : ProducibleItem
 	{
 		public override string Name => "Гвозди";
-		public override int LevelWhenAppears => 35;
 		public override Building BuildingToCreate => new MeteoriteForge();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
-				{
-					(new Iron(), 17),
-					(new Clay(), 7),
-					(new Wood(), 17)
-				};
+		{
+			(new Iron(), 17),
+			(new Clay(), 7),
+			(new Wood(), 17)
+		};
 	}
 
 	public class IronPlate : ProducibleItem
 	{
 		public override string Name => "Железная пластина";
-		public override int LevelWhenAppears => 54;
 		public override Building BuildingToCreate => new MeteoriteForge();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -37,7 +34,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class IronPipe : ProducibleItem
 	{
 		public override string Name => "Железная труба";
-		public override int LevelWhenAppears => 65;
 		public override Building BuildingToCreate => new MeteoriteForge();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

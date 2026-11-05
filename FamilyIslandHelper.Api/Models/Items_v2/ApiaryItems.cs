@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Pollen : ProducibleItem
 	{
 		public override string Name => "Пыльца";
-		public override int LevelWhenAppears => 60;
 		public override Building BuildingToCreate => new Apiary();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class BeesWax : ProducibleItem
 	{
 		public override string Name => "Пчелиный воск";
-		public override int LevelWhenAppears => 65;
 		public override Building BuildingToCreate => new Apiary();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -36,7 +34,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	public class Honey : ProducibleItem
 	{
 		public override string Name => "Мёд";
-		public override int LevelWhenAppears => 70;
 		public override Building BuildingToCreate => new Apiary();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

@@ -73,7 +73,6 @@ namespace FamilyIslandHelper.Api.UnitTests
 		public void Given_ProducibleItem_When_GetProperties_Then_ReturnNotNullValues(List<ProducibleItem> producibleItems)
 		{
 			Assert.All(producibleItems, (item) => Assert.NotNull(item.Name));
-			Assert.All(producibleItems, (item) => Assert.InRange(item.LevelWhenAppears, 1, 150));
 			Assert.All(producibleItems, (item) => Assert.NotNull(item.BuildingToCreate));
 			Assert.All(producibleItems, (item) => Assert.NotEmpty(item.Components));
 		}
