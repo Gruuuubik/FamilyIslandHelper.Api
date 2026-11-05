@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class IceBowl : ProducibleItem
 	{
 		public override string Name => "Ледяная миска";
-		public override int LevelWhenAppears => 100;
 		public override Building BuildingToCreate => new CrystalForge();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("FamilyIslandHelper.Api.UnitTests")]
@@ -9,8 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Abstract
 	public abstract class ProducibleItem : Item
 	{
 		public abstract List<(Item item, int count)> Components { get; }
-
-		public abstract int LevelWhenAppears { get; }
 
 		public abstract Building BuildingToCreate { get; }
 

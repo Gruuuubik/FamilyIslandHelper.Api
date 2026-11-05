@@ -8,7 +8,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class SnowShovel : ProducibleItem
 	{
 		public override string Name => "SnowShovel";
-		public override int LevelWhenAppears => 80;
 		public override Building BuildingToCreate => new WinterWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
@@ -22,7 +21,6 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 	internal class Skis : ProducibleItem
 	{
 		public override string Name => "Skis";
-		public override int LevelWhenAppears => 90;
 		public override Building BuildingToCreate => new WinterWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
