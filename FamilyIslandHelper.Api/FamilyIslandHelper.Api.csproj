@@ -8,6 +8,7 @@
     <Deterministic>true</Deterministic>
     <Version>1.3.5</Version>
     <ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <Copyright>Copyright $([System.DateTime]::Now.Year) Pavel Zhuraulevich</Copyright>
