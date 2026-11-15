@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace FamilyIslandHelper.Api.Helpers
 {
+	/// <summary>
+	/// Finds the classes of the game data (buildings, items and resources) by their namespace.
+	/// </summary>
 	public class ClassHelper
 	{
 		internal static IEnumerable<Type> GetClasses(string nameSpace)
