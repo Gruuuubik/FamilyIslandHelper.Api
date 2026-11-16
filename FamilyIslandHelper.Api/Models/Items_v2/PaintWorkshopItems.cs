@@ -43,4 +43,16 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 			(new Clay(), 15)
 		};
 	}
+
+	internal class GreenPaint : ProducibleItem
+	{
+		public override string Name => "Зеленая краска";
+		public override Building BuildingToCreate => new PaintWorkshop();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+		{
+			(new Clay(), 20),
+			(new Wood(), 18)
+		};
+	}
 }

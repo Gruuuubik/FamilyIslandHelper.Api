@@ -12,8 +12,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new Ocher(),
 			new BluePaint(),
-			new YellowPaint()
-			//new GreenPaint()
+			new YellowPaint(),
+			new GreenPaint()
 		};
 	}
 }
