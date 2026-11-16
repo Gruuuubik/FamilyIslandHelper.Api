@@ -17,4 +17,16 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Wood(), 20)
 			};
 	}
+
+	internal class IceAxe : ProducibleItem
+	{
+		public override string Name => "Ледяной топор";
+		public override Building BuildingToCreate => new IceForge();
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+			{
+				(new Stick(), 50),
+				(new Stone(), 40),
+				(new Iron(), 50)
+			};
+	}
 }
