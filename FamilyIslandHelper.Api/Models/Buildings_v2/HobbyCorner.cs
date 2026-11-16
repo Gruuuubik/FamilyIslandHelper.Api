@@ -12,7 +12,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new Scissors(),
 			new CorrugatedPaper(),
-			new Paints()
+			new Paints(),
+			new TubeOfGlue()
 		};
 	}
 }

@@ -42,4 +42,16 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Grass(), 20)
 			};
 	}
+
+	internal class TubeOfGlue : ProducibleItem
+	{
+		public override string Name => "Тюбик клея";
+		public override Building BuildingToCreate => new HobbyCorner();
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+			{
+				(new Grass(), 25),
+				(new Stick(), 20),
+				(new Iron(), 15)
+			};
+	}
 }
