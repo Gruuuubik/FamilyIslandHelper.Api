@@ -43,4 +43,17 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 			(new Grass(), 25)
 		};
 	}
+
+	public class Gear : ProducibleItem
+	{
+		public override string Name => "Шестерёнка";
+		public override Building BuildingToCreate => new MeteoriteForge();
+
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+		{
+			(new Stone(), 35),
+			(new Wood(), 40),
+			(new Iron(), 40)
+		};
+	}
 }

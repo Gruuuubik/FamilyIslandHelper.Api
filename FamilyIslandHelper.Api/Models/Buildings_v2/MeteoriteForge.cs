@@ -11,7 +11,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new Nails(),
 			new IronPlate(),
-			new IronPipe()
+			new IronPipe(),
+			new Gear()
 		};
 	}
 }
