@@ -156,7 +156,7 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(16)]
+		[InlineData(17)]
 		public void When_GetResourcesNames_Then_ReturnCorrectValue(int expectedNamesCount)
 		{
 			var actualNames = itemHelper.GetResourcesNames();

@@ -111,4 +111,10 @@ namespace FamilyIslandHelper.Api.Models.Resources_v2
 	{
 		public override string Name => "Черника";
 	}
+
+	[ExcludeFromCodeCoverage]
+	public class MammothWool : ZeroCostResourceItem
+	{
+		public override string Name => "Шерсть мамонта";
+	}
 }
