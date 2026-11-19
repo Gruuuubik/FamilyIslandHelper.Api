@@ -6,7 +6,7 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class ChildrenWorkshop : Building
 	{
-		public override string Name => "Детская мастерская";
+		public override string Name => "Детский уголок";
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
 			new ColoredPencils(),

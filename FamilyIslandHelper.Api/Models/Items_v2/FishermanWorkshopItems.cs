@@ -7,7 +7,7 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 {
 	internal class FishingRod : ProducibleItem
 	{
-		public override string Name => "FishingRod";
+		public override string Name => "Удочка";
 		public override Building BuildingToCreate => new FishermanWorkshop();
 
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>

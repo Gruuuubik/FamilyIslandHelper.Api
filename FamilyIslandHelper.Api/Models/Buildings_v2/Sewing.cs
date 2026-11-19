@@ -6,7 +6,7 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class Sewing : Building
 	{
-		public override string Name => "Швейная";
+		public override string Name => "Швейная мастерская";
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
 			new Apron()

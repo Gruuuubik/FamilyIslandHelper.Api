@@ -6,12 +6,13 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class AlchemyWorkshop : Building
 	{
-		public override string Name => "Алхимическая мастерская";
+		public override string Name => "Снежная лаборатория";
 
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
 			new HomemadeSnowflake(),
-			new SnowDust()
+			new SnowDust(),
+			//new LiquidFrost()
 		};
 	}
 }

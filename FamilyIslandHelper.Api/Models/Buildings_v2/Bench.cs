@@ -6,7 +6,7 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class Bench : Building
 	{
-		public override string Name => "Лавка (?)";
+		public override string Name => "Верстак";
 
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{

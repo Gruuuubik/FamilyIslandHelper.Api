@@ -6,7 +6,7 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class PrintShop : Building
 	{
-		public override string Name => "Типография";
+		public override string Name => "Библиотека";
 
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{

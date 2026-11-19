@@ -6,7 +6,7 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class IceForge : Building
 	{
-		public override string Name => "Ледяная шахта";
+		public override string Name => "Ледяная мастерская";
 
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{

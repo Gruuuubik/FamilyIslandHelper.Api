@@ -6,7 +6,7 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 {
 	public class CrystalForge : Building
 	{
-		public override string Name => "Кристальная кузница";
+		public override string Name => "Ледяная гончарная";
 
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
