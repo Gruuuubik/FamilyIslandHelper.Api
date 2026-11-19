@@ -43,4 +43,16 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 				(new Stone(), 35)
 			};
 	}
+
+	public class StoneWheel : ProducibleItem
+	{
+		public override string Name => "Каменное колесо";
+		public override Building BuildingToCreate => new Knocker();
+		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
+			{
+				(new Grass(), 25),
+				(new Clay(), 20),
+				(new Iron(), 15)
+			};
+	}
 }

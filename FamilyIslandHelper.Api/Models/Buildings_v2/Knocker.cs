@@ -11,7 +11,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		{
 			new StoneBlock(),
 			new StoneTile(),
-			new WoodenBeam()
+			new WoodenBeam(),
+			new StoneWheel()
 		};
 	}
 }
