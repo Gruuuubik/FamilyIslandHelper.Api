@@ -10,8 +10,8 @@ namespace FamilyIslandHelper.Api.Models.Buildings_v2
 		public override List<ProducibleItem> Items => new List<ProducibleItem>
 		{
 			new Wattle(),
-			new Gloves(),
 			new Sackcloth(),
+			new Gloves(),
 			new Cloth()
 		};
 	}

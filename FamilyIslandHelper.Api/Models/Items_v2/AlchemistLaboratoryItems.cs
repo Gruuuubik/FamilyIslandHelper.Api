@@ -53,7 +53,7 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 		{
 			(new Wood(), 18),
 			(new Stone(), 15),
-			(new Beams(), 3)
+			(new SteelSheet(), 3)
 		};
 	}
 }

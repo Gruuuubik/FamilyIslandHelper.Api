@@ -38,7 +38,8 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
 			{
 				(new Needle(), 3),
-				(new Grass(), 25)
+				(new Grass(), 25),
+				(new Feather(), 1)
 			};
 	}
 

@@ -26,7 +26,7 @@ namespace FamilyIslandHelper.Api.Models.Items_v2
 		public override List<(Item item, int count)> Components => new List<(Item item, int count)>
 			{
 				(new Coal(), 3),
-				(new Glass(), 30),
+				(new Grass(), 30),
 				(new Iron(), 15)
 			};
 	}
