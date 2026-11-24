@@ -1,0 +1,39 @@
+{
+  "id": "Workshop",
+  "name": "Каменная мастерская",
+  "items": [
+    {
+      "id": "Scraper",
+      "name": "Скребок",
+      "components": [
+        { "item": "Stone", "count": 2 }
+      ]
+    },
+    {
+      "id": "Axe",
+      "name": "Топор",
+      "components": [
+        { "item": "Stone", "count": 6 },
+        { "item": "Grass", "count": 4 },
+        { "item": "Stick", "count": 4 }
+      ]
+    },
+    {
+      "id": "Knife",
+      "name": "Нож",
+      "components": [
+        { "item": "Iron", "count": 2 },
+        { "item": "Grass", "count": 6 },
+        { "item": "Stick", "count": 4 }
+      ]
+    },
+    {
+      "id": "Brick",
+      "name": "Кирпич",
+      "components": [
+        { "item": "Stone", "count": 10 },
+        { "item": "Clay", "count": 9 }
+      ]
+    }
+  ]
+}

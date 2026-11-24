@@ -1,0 +1,39 @@
+{
+  "id": "Sawmill",
+  "name": "Лесопилка",
+  "items": [
+    {
+      "id": "Stakes",
+      "name": "Колья",
+      "components": [
+        { "item": "Stick", "count": 3 }
+      ]
+    },
+    {
+      "id": "Board",
+      "name": "Доска",
+      "components": [
+        { "item": "Wood", "count": 4 },
+        { "item": "Stone", "count": 2 }
+      ]
+    },
+    {
+      "id": "SmoothBoard",
+      "name": "Гладкая доска",
+      "components": [
+        { "item": "Wood", "count": 12 },
+        { "item": "Stone", "count": 12 },
+        { "item": "Stick", "count": 20 }
+      ]
+    },
+    {
+      "id": "Beams",
+      "name": "Брус",
+      "components": [
+        { "item": "Stone", "count": 25 },
+        { "item": "Stick", "count": 30 },
+        { "item": "Wood", "count": 12 }
+      ]
+    }
+  ]
+}

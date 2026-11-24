@@ -1,0 +1,41 @@
+{
+  "id": "PaintWorkshop",
+  "name": "Красильня",
+  "items": [
+    {
+      "id": "Ocher",
+      "name": "Охра",
+      "components": [
+        { "item": "Clay", "count": 20 },
+        { "item": "Stick", "count": 15 },
+        { "item": "Grass", "count": 22 }
+      ]
+    },
+    {
+      "id": "BluePaint",
+      "name": "Синяя краска",
+      "components": [
+        { "item": "Blueberry", "count": 15 },
+        { "item": "Pot", "count": 2 },
+        { "item": "Stone", "count": 16 }
+      ]
+    },
+    {
+      "id": "YellowPaint",
+      "name": "Желтая краска",
+      "components": [
+        { "item": "Grass", "count": 15 },
+        { "item": "Rope", "count": 2 },
+        { "item": "Clay", "count": 15 }
+      ]
+    },
+    {
+      "id": "GreenPaint",
+      "name": "Зеленая краска",
+      "components": [
+        { "item": "Clay", "count": 20 },
+        { "item": "Wood", "count": 18 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "WinterwearWorkshop",
+  "name": "Снежная гардеробная",
+  "items": [
+    {
+      "id": "Mittens",
+      "name": "Варежки",
+      "components": [
+        { "item": "MammothWool", "count": 3 },
+        { "item": "Stone", "count": 25 },
+        { "item": "Grass", "count": 25 }
+      ]
+    },
+    {
+      "id": "KnittedHat",
+      "name": "Вязанная шапка",
+      "components": [
+        { "item": "MammothWool", "count": 1 },
+        { "item": "Needle", "count": 2 },
+        { "item": "Stick", "count": 20 }
+      ]
+    }
+  ]
+}

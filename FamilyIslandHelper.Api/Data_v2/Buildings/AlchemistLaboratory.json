@@ -1,0 +1,42 @@
+{
+  "id": "AlchemistLaboratory",
+  "name": "Лаборатория алхимика",
+  "items": [
+    {
+      "id": "Gold",
+      "name": "Золото",
+      "components": [
+        { "item": "Stone", "count": 25 },
+        { "item": "Clay", "count": 10 },
+        { "item": "Wood", "count": 10 }
+      ]
+    },
+    {
+      "id": "Emerald",
+      "name": "Изумруд",
+      "components": [
+        { "item": "Iron", "count": 10 },
+        { "item": "Stone", "count": 12 },
+        { "item": "Wood", "count": 6 }
+      ]
+    },
+    {
+      "id": "Mercury",
+      "name": "Ртуть",
+      "components": [
+        { "item": "Iron", "count": 15 },
+        { "item": "Stick", "count": 37 },
+        { "item": "Clay", "count": 30 }
+      ]
+    },
+    {
+      "id": "GasCylinder",
+      "name": "Газовый баллон",
+      "components": [
+        { "item": "Wood", "count": 18 },
+        { "item": "Stone", "count": 15 },
+        { "item": "SteelSheet", "count": 3 }
+      ]
+    }
+  ]
+}

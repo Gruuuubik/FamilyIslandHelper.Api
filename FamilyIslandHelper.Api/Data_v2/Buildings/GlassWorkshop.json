@@ -1,0 +1,24 @@
+{
+  "id": "GlassWorkshop",
+  "name": "Стекольная",
+  "items": [
+    {
+      "id": "StainedGlass",
+      "name": "Витраж",
+      "components": [
+        { "item": "Grass", "count": 40 },
+        { "item": "Glass", "count": 2 },
+        { "item": "Clay", "count": 30 }
+      ]
+    },
+    {
+      "id": "Lenses",
+      "name": "Линзы",
+      "components": [
+        { "item": "Coal", "count": 3 },
+        { "item": "Grass", "count": 30 },
+        { "item": "Iron", "count": 15 }
+      ]
+    }
+  ]
+}

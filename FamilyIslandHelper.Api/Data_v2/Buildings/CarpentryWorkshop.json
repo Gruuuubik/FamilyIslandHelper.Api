@@ -1,0 +1,39 @@
+{
+  "id": "CarpentryWorkshop",
+  "name": "Столярная мастерская",
+  "items": [
+    {
+      "id": "Spoon",
+      "name": "Ложка",
+      "components": [
+        { "item": "Wood", "count": 5 },
+        { "item": "Stone", "count": 8 }
+      ]
+    },
+    {
+      "id": "Crest",
+      "name": "Гребень",
+      "components": [
+        { "item": "Wood", "count": 6 },
+        { "item": "Clay", "count": 4 }
+      ]
+    },
+    {
+      "id": "Stool",
+      "name": "Табуретка",
+      "components": [
+        { "item": "SmoothBoard", "count": 2 },
+        { "item": "Wood", "count": 7 }
+      ]
+    },
+    {
+      "id": "Stairs",
+      "name": "Лестница",
+      "components": [
+        { "item": "Stick", "count": 12 },
+        { "item": "Grass", "count": 32 },
+        { "item": "Stone", "count": 27 }
+      ]
+    }
+  ]
+}

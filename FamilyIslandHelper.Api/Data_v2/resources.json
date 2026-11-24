@@ -1,0 +1,19 @@
+[
+  { "id": "Clay", "name": "Глина", "energyCost": 5 },
+  { "id": "Wood", "name": "Дерево", "energyCost": 4 },
+  { "id": "Stick", "name": "Палка", "energyCost": 11 },
+  { "id": "Stone", "name": "Камень", "energyCost": 10 },
+  { "id": "Grass", "name": "Трава", "energyCost": 2 },
+  { "id": "Skin", "name": "Шкура", "energyCost": 0 },
+  { "id": "Cotton", "name": "Хлопок", "energyCost": 0 },
+  { "id": "Potherb", "name": "Коренья", "energyCost": 0 },
+  { "id": "Corn", "name": "Кукуруза", "energyCost": 0 },
+  { "id": "Egg", "name": "Яйцо", "energyCost": 0 },
+  { "id": "Milk", "name": "Молоко", "energyCost": 0 },
+  { "id": "Wheat", "name": "Пшеница", "energyCost": 0 },
+  { "id": "Tomato", "name": "Томат", "energyCost": 0 },
+  { "id": "Feather", "name": "Перо", "energyCost": 0 },
+  { "id": "Iron", "name": "Железо", "energyCost": 24 },
+  { "id": "Blueberry", "name": "Черника", "energyCost": 0 },
+  { "id": "MammothWool", "name": "Шерсть мамонта", "energyCost": 0 }
+]

@@ -12,8 +12,6 @@ namespace FamilyIslandHelper.Api.Helpers
 	/// </summary>
 	public class ItemHelper : BaseHelper
 	{
-		private readonly string itemsNamespace;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ItemHelper"/> class.
 		/// </summary>
@@ -21,11 +19,8 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <exception cref="NotSupportedException">The version is not supported. Only <see cref="ApiVersion.v2"/> is supported.</exception>
 		public ItemHelper(ApiVersion apiVersion) : base(apiVersion)
 		{
-			itemsNamespace = $"{MainNamespace}.Models.Items{Prefix}";
-
 			FolderWithResourcesPictures = Path.Combine(FolderWithPictures, "Resources");
 			FolderWithItemsPictures = Path.Combine(FolderWithPictures, "Items");
-			ResourcesNamespace = $"{MainNamespace}.Models.Resources{Prefix}";
 		}
 
 		/// <summary>
@@ -39,41 +34,46 @@ namespace FamilyIslandHelper.Api.Helpers
 		public string FolderWithItemsPictures { get; }
 
 		/// <summary>
-		/// Gets the namespace of the classes of resources.
+		/// Gets an item that is produced in a building by its identifier.
 		/// </summary>
-		public string ResourcesNamespace { get; }
-
-		/// <summary>
-		/// Creates an item that is produced in a building by the name of its class.
-		/// </summary>
-		/// <param name="itemTypeString">The name of the class of the item, for example <c>Rope</c>.</param>
-		/// <returns>A new instance of the item.</returns>
-		/// <exception cref="TypeLoadException">There is no item with such name (resources are not produced items).</exception>
+		/// <param name="itemTypeString">The identifier of the item, for example <c>Rope</c>.</param>
+		/// <returns>The item. The same instance is returned on every call.</returns>
+		/// <exception cref="ArgumentNullException"><paramref name="itemTypeString"/> is <see langword="null"/>.</exception>
+		/// <exception cref="ArgumentException">There is no such item (resources are not produced items).</exception>
 		public ProducibleItem CreateProducibleItem(string itemTypeString)
 		{
-			var itemType = Type.GetType($"{itemsNamespace}.{itemTypeString}", true);
+			if (itemTypeString == null)
+			{
+				throw new ArgumentNullException(nameof(itemTypeString));
+			}
 
-			return Activator.CreateInstance(itemType) as ProducibleItem;
+			return Data.FindItem(itemTypeString)
+				?? throw new ArgumentException($"Item '{itemTypeString}' was not found.", nameof(itemTypeString));
 		}
 
 		/// <summary>
-		/// Creates a resource by the name of its class.
+		/// Gets a resource by its identifier.
 		/// </summary>
-		/// <param name="itemTypeString">The name of the class of the resource, for example <c>Stone</c>.</param>
-		/// <returns>A new instance of the resource.</returns>
-		/// <exception cref="TypeLoadException">There is no resource with such name.</exception>
+		/// <param name="itemTypeString">The identifier of the resource, for example <c>Stone</c>.</param>
+		/// <returns>The resource. The same instance is returned on every call.</returns>
+		/// <exception cref="ArgumentNullException"><paramref name="itemTypeString"/> is <see langword="null"/>.</exception>
+		/// <exception cref="ArgumentException">There is no such resource.</exception>
 		public ResourceItem CreateResourceItem(string itemTypeString)
 		{
-			var resourceItemType = Type.GetType($"{ResourcesNamespace}.{itemTypeString}", true);
+			if (itemTypeString == null)
+			{
+				throw new ArgumentNullException(nameof(itemTypeString));
+			}
 
-			return Activator.CreateInstance(resourceItemType) as ResourceItem;
+			return Data.FindResource(itemTypeString)
+				?? throw new ArgumentException($"Resource '{itemTypeString}' was not found.", nameof(itemTypeString));
 		}
 
 		/// <summary>
-		/// Finds an item or a resource by the name of its class.
+		/// Finds an item or a resource by its identifier.
 		/// </summary>
-		/// <param name="itemName">The name of the class, for example <c>Rope</c> or <c>Stone</c>.</param>
-		/// <returns>A new <see cref="ProducibleItem"/> or <see cref="ResourceItem"/>, or <see langword="null"/> if nothing is found.</returns>
+		/// <param name="itemName">The identifier, for example <c>Rope</c> or <c>Stone</c>.</param>
+		/// <returns>The <see cref="ProducibleItem"/> or the <see cref="ResourceItem"/>, or <see langword="null"/> if nothing is found.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="itemName"/> is <see langword="null"/>.</exception>
 		public Item FindItemByName(string itemName)
 		{
@@ -82,21 +82,7 @@ namespace FamilyIslandHelper.Api.Helpers
 				throw new ArgumentNullException(nameof(itemName));
 			}
 
-			var itemType = ClassHelper.GetClasses(itemsNamespace).FirstOrDefault(t => t.Name == itemName);
-
-			if (itemType != null)
-			{
-				return CreateProducibleItem(itemType.Name);
-			}
-
-			itemType = ClassHelper.GetClasses(ResourcesNamespace).FirstOrDefault(t => t.Name == itemName);
-
-			if (itemType != null)
-			{
-				return CreateResourceItem(itemType.Name);
-			}
-
-			return null;
+			return (Item)Data.FindItem(itemName) ?? Data.FindResource(itemName);
 		}
 
 		/// <summary>
@@ -165,7 +151,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <summary>
 		/// Gets the text description of several items.
 		/// </summary>
-		/// <param name="itemName">The name of the class of the item or the resource.</param>
+		/// <param name="itemName">The identifier of the item or the resource.</param>
 		/// <param name="itemCount">The number of items.</param>
 		/// <param name="showListOfComponents">Whether to add the tree of components (for items that are produced in buildings).</param>
 		/// <returns>The lines: the name with the total energy cost and, optionally, the components.</returns>
@@ -194,8 +180,8 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <summary>
 		/// Gets the relative path of the picture of an item.
 		/// </summary>
-		/// <param name="buildingName">The name of the class of the building that produces the item.</param>
-		/// <param name="itemName">The name of the class of the item.</param>
+		/// <param name="buildingName">The identifier of the building that produces the item.</param>
+		/// <param name="itemName">The identifier of the item.</param>
 		/// <returns>The path, for example <c>Pictures_v2\Items\Bench\Barrel.png</c>.</returns>
 		public string GetItemImagePathByName(string buildingName, string itemName)
 		{
@@ -208,8 +194,8 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <remarks>
 		/// Uses System.Drawing.Common, so on .NET 6 and later it works on Windows only. Use <see cref="GetItemImageStreamByName(string, string)"/> to get the raw PNG.
 		/// </remarks>
-		/// <param name="buildingName">The name of the class of the building that produces the item.</param>
-		/// <param name="itemName">The name of the class of the item.</param>
+		/// <param name="buildingName">The identifier of the building that produces the item.</param>
+		/// <param name="itemName">The identifier of the item.</param>
 		/// <returns>The picture.</returns>
 		public Image GetItemImageByName(string buildingName, string itemName)
 		{
@@ -219,8 +205,8 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <summary>
 		/// Gets the picture of an item as a PNG stream.
 		/// </summary>
-		/// <param name="buildingName">The name of the class of the building that produces the item.</param>
-		/// <param name="itemName">The name of the class of the item.</param>
+		/// <param name="buildingName">The identifier of the building that produces the item.</param>
+		/// <param name="itemName">The identifier of the item.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
 		public MemoryStream GetItemImageStreamByName(string buildingName, string itemName)
 		{
@@ -230,12 +216,12 @@ namespace FamilyIslandHelper.Api.Helpers
 		}
 
 		/// <summary>
-		/// Gets the names of the classes of all resources.
+		/// Gets the identifiers of all resources.
 		/// </summary>
-		/// <returns>The names of the classes.</returns>
+		/// <returns>The identifiers in the order they are declared in the game data.</returns>
 		public List<string> GetResourcesNames()
 		{
-			return ClassHelper.GetClassesNames(ResourcesNamespace).ToList();
+			return Data.Resources.Select(r => r.Id).ToList();
 		}
 
 		/// <summary>
@@ -244,7 +230,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <remarks>
 		/// Uses System.Drawing.Common, so on .NET 6 and later it works on Windows only. Use <see cref="GetResourceImageStreamByName(string)"/> to get the raw PNG.
 		/// </remarks>
-		/// <param name="resourceName">The name of the class of the resource.</param>
+		/// <param name="resourceName">The identifier of the resource.</param>
 		/// <returns>The picture.</returns>
 		public Image GetResourceImageByName(string resourceName)
 		{
@@ -254,7 +240,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <summary>
 		/// Gets the picture of a resource as a PNG stream.
 		/// </summary>
-		/// <param name="resourceName">The name of the class of the resource.</param>
+		/// <param name="resourceName">The identifier of the resource.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
 		public MemoryStream GetResourceImageStreamByName(string resourceName)
 		{

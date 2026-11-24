@@ -20,7 +20,7 @@ using FamilyIslandHelper.Api.Models.Abstract;
 var buildingHelper = new BuildingHelper(ApiVersion.v2);
 var itemHelper = new ItemHelper(ApiVersion.v2);
 
-// Items of a building (class names)
+// Items of a building (ids)
 var forgeItems = buildingHelper.GetItemsOfBuilding("Forge");
 
 // Recipe and total energy cost of an item
@@ -38,7 +38,7 @@ if (itemHelper.FindItemByName("Rope") is ProducibleItem rope)
 Console.WriteLine(ItemHelper.CompareItems(itemHelper.FindItemByName("Wattle"), itemHelper.FindItemByName("Rope")));
 ```
 
-Items, resources and buildings are looked up by class name. Display names and generated texts are in Russian. Item, resource and building pictures are embedded as PNG (`Get...ImageStreamByName` methods).
+Items, resources and buildings are looked up by id (`"Rope"`, `"Stone"`, `"Forge"`; see `Item.Id` and `Building.Id`). The game data is stored as JSON files embedded into the assembly. Display names and generated texts are in Russian. Item, resource and building pictures are embedded as PNG (`Get...ImageStreamByName` methods).
 
 ## Links
 

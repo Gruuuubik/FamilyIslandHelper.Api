@@ -1,0 +1,40 @@
+{
+  "id": "Smelter",
+  "name": "Плавильня",
+  "items": [
+    {
+      "id": "Resin",
+      "name": "Смола",
+      "components": [
+        { "item": "Wood", "count": 4 },
+        { "item": "Stick", "count": 7 }
+      ]
+    },
+    {
+      "id": "IronIngot",
+      "name": "Железный слиток",
+      "components": [
+        { "item": "Iron", "count": 7 },
+        { "item": "Wood", "count": 7 },
+        { "item": "Stone", "count": 6 }
+      ]
+    },
+    {
+      "id": "Coal",
+      "name": "Уголь",
+      "components": [
+        { "item": "Wood", "count": 7 },
+        { "item": "Stick", "count": 12 }
+      ]
+    },
+    {
+      "id": "SteelSheet",
+      "name": "Стальной лист",
+      "components": [
+        { "item": "Iron", "count": 12 },
+        { "item": "Stone", "count": 12 },
+        { "item": "Clay", "count": 15 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "Loom",
+  "name": "Прялка",
+  "items": [
+    {
+      "id": "Lace",
+      "name": "Шнурок",
+      "components": [
+        { "item": "Grass", "count": 3 }
+      ]
+    },
+    {
+      "id": "Rope",
+      "name": "Верёвка",
+      "components": [
+        { "item": "Grass", "count": 14 },
+        { "item": "Stone", "count": 8 }
+      ]
+    },
+    {
+      "id": "LeatherСord",
+      "name": "Кожаный шнур",
+      "components": [
+        { "item": "Knife", "count": 3 },
+        { "item": "Skin", "count": 2 },
+        { "item": "Clay", "count": 17 }
+      ]
+    },
+    {
+      "id": "Basket",
+      "name": "Корзина",
+      "components": [
+        { "item": "Needle", "count": 3 },
+        { "item": "Grass", "count": 12 },
+        { "item": "Stone", "count": 15 }
+      ]
+    }
+  ]
+}

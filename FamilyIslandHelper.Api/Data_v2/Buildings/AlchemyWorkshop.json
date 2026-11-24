@@ -1,0 +1,24 @@
+{
+  "id": "AlchemyWorkshop",
+  "name": "Снежная лаборатория",
+  "items": [
+    {
+      "id": "HomemadeSnowflake",
+      "name": "Самодельная снежинка",
+      "components": [
+        { "item": "Iron", "count": 18 },
+        { "item": "Pot", "count": 3 },
+        { "item": "Stick", "count": 25 }
+      ]
+    },
+    {
+      "id": "SnowDust",
+      "name": "Снежная пыль",
+      "components": [
+        { "item": "Stone", "count": 50 },
+        { "item": "Wood", "count": 40 },
+        { "item": "Iron", "count": 35 }
+      ]
+    }
+  ]
+}

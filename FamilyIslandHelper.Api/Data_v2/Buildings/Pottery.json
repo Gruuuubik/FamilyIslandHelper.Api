@@ -1,0 +1,39 @@
+{
+  "id": "Pottery",
+  "name": "Гончарная",
+  "items": [
+    {
+      "id": "Bowl",
+      "name": "Миска",
+      "components": [
+        { "item": "Clay", "count": 2 }
+      ]
+    },
+    {
+      "id": "Pot",
+      "name": "Глиняный горшок",
+      "components": [
+        { "item": "Clay", "count": 5 },
+        { "item": "Stick", "count": 4 }
+      ]
+    },
+    {
+      "id": "Jug",
+      "name": "Кувшин",
+      "components": [
+        { "item": "Clay", "count": 12 },
+        { "item": "Stick", "count": 10 },
+        { "item": "Iron", "count": 12 }
+      ]
+    },
+    {
+      "id": "Amphora",
+      "name": "Амфора",
+      "components": [
+        { "item": "Clay", "count": 12 },
+        { "item": "Stick", "count": 30 },
+        { "item": "Grass", "count": 30 }
+      ]
+    }
+  ]
+}

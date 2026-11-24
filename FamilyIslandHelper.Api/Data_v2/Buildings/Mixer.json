@@ -1,0 +1,35 @@
+{
+  "id": "Mixer",
+  "name": "Мешалка",
+  "items": [
+    {
+      "id": "Soap",
+      "name": "Мыло",
+      "components": [
+        { "item": "Clay", "count": 7 },
+        { "item": "Egg", "count": 2 }
+      ]
+    },
+    {
+      "id": "Butter",
+      "name": "Масло",
+      "components": [
+        { "item": "Milk", "count": 3 }
+      ]
+    },
+    {
+      "id": "Cheese",
+      "name": "Сыр",
+      "components": [
+        { "item": "Milk", "count": 6 }
+      ]
+    },
+    {
+      "id": "WhippedCream",
+      "name": "Взбитые сливки",
+      "components": [
+        { "item": "Milk", "count": 6 }
+      ]
+    }
+  ]
+}

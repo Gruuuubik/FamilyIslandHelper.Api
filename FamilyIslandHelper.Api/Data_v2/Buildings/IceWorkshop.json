@@ -1,0 +1,15 @@
+{
+  "id": "IceWorkshop",
+  "name": "Уголок скалолаза",
+  "items": [
+    {
+      "id": "Quickdraw",
+      "name": "Оттяжка",
+      "components": [
+        { "item": "Grass", "count": 12 },
+        { "item": "Stone", "count": 20 },
+        { "item": "Iron", "count": 20 }
+      ]
+    }
+  ]
+}

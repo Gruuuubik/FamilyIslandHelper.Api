@@ -1,0 +1,42 @@
+{
+  "id": "ShamanWorkshop",
+  "name": "Мастерская шамана",
+  "items": [
+    {
+      "id": "GemNecklace",
+      "name": "Ожерелье",
+      "components": [
+        { "item": "Grass", "count": 37 },
+        { "item": "Emerald", "count": 2 },
+        { "item": "Clay", "count": 32 }
+      ]
+    },
+    {
+      "id": "Rune",
+      "name": "Руна",
+      "components": [
+        { "item": "Stick", "count": 40 },
+        { "item": "Stone", "count": 40 },
+        { "item": "Iron", "count": 35 }
+      ]
+    },
+    {
+      "id": "Amulet",
+      "name": "Амулет",
+      "components": [
+        { "item": "Grass", "count": 25 },
+        { "item": "Stone", "count": 30 },
+        { "item": "Iron", "count": 30 }
+      ]
+    },
+    {
+      "id": "DreamCatcher",
+      "name": "Ловец снов",
+      "components": [
+        { "item": "Stick", "count": 25 },
+        { "item": "Iron", "count": 20 },
+        { "item": "Clay", "count": 25 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "PrintShop",
+  "name": "Библиотека",
+  "items": [
+    {
+      "id": "Book",
+      "name": "Книга",
+      "components": [
+        { "item": "Grass", "count": 30 },
+        { "item": "Stone", "count": 30 },
+        { "item": "Wood", "count": 30 }
+      ]
+    },
+    {
+      "id": "BottleOfInk",
+      "name": "Бутылка с чернилами",
+      "components": [
+        { "item": "Feather", "count": 1 },
+        { "item": "Stick", "count": 45 },
+        { "item": "Pot", "count": 4 }
+      ]
+    }
+  ]
+}

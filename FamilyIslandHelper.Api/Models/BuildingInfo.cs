@@ -1,7 +1,7 @@
 ﻿namespace FamilyIslandHelper.Api.Models
 {
 	/// <summary>
-	/// Short description of a building: the name of its class and its display name.
+	/// Short description of a building: its identifier and display name.
 	/// </summary>
 	public class BuildingInfo
 	{
@@ -11,7 +11,7 @@
 		public string Name { get; set; }
 
 		/// <summary>
-		/// Gets or sets the name of the class of the building. Pass it to
+		/// Gets or sets the identifier of the building. Pass it to
 		/// <see cref="FamilyIslandHelper.Api.Helpers.BuildingHelper.CreateBuilding(string)"/> to get the building.
 		/// </summary>
 		public string Value { get; set; }

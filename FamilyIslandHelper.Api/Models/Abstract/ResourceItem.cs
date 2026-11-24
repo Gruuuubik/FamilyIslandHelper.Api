@@ -25,23 +25,4 @@ namespace FamilyIslandHelper.Api.Models.Abstract
 			return $"{Name}({EnergyCost * itemCount} энергии)";
 		}
 	}
-
-	/// <summary>
-	/// A resource that costs no energy. It is shown by its name only.
-	/// </summary>
-	public abstract class ZeroCostResourceItem : ResourceItem
-	{
-		/// <inheritdoc />
-		public override int EnergyCost => 0;
-
-		/// <inheritdoc />
-		[ExcludeFromCodeCoverage]
-		public override string ToString() => Name;
-
-		/// <inheritdoc />
-		public override string ToString(int itemCount)
-		{
-			return Name;
-		}
-	}
 }

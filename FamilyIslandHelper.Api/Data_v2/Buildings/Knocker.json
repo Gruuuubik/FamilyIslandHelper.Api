@@ -1,0 +1,42 @@
+{
+  "id": "Knocker",
+  "name": "Стучалка",
+  "items": [
+    {
+      "id": "StoneBlock",
+      "name": "Каменный блок",
+      "components": [
+        { "item": "Stone", "count": 15 },
+        { "item": "Iron", "count": 15 },
+        { "item": "Wood", "count": 15 }
+      ]
+    },
+    {
+      "id": "StoneTile",
+      "name": "Каменная плитка",
+      "components": [
+        { "item": "Stone", "count": 20 },
+        { "item": "Nails", "count": 3 },
+        { "item": "Stick", "count": 15 }
+      ]
+    },
+    {
+      "id": "WoodenBeam",
+      "name": "Деревянная балка",
+      "components": [
+        { "item": "Grass", "count": 40 },
+        { "item": "Beams", "count": 1 },
+        { "item": "Stone", "count": 35 }
+      ]
+    },
+    {
+      "id": "StoneWheel",
+      "name": "Каменное колесо",
+      "components": [
+        { "item": "Grass", "count": 25 },
+        { "item": "Clay", "count": 20 },
+        { "item": "Iron", "count": 15 }
+      ]
+    }
+  ]
+}

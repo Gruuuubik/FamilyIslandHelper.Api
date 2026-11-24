@@ -1,0 +1,33 @@
+{
+  "id": "ChildrenWorkshop",
+  "name": "Детский уголок",
+  "items": [
+    {
+      "id": "ColoredPencils",
+      "name": "Цветные карандаши",
+      "components": [
+        { "item": "Stick", "count": 30 },
+        { "item": "Clay", "count": 30 },
+        { "item": "Stone", "count": 30 }
+      ]
+    },
+    {
+      "id": "Plasticine",
+      "name": "Пластилин",
+      "components": [
+        { "item": "Wood", "count": 20 },
+        { "item": "Clay", "count": 25 },
+        { "item": "Stone", "count": 18 }
+      ]
+    },
+    {
+      "id": "BeadKit",
+      "name": "Бисерный набор",
+      "components": [
+        { "item": "Stone", "count": 15 },
+        { "item": "IceKnife", "count": 2 },
+        { "item": "Paints", "count": 2 }
+      ]
+    }
+  ]
+}

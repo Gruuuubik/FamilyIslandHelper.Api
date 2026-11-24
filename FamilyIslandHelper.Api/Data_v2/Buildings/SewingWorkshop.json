@@ -1,0 +1,41 @@
+{
+  "id": "SewingWorkshop",
+  "name": "Ткацкий станок",
+  "items": [
+    {
+      "id": "Wattle",
+      "name": "Плетень",
+      "components": [
+        { "item": "Grass", "count": 4 },
+        { "item": "Stick", "count": 3 }
+      ]
+    },
+    {
+      "id": "Sackcloth",
+      "name": "Мешковина",
+      "components": [
+        { "item": "Grass", "count": 4 },
+        { "item": "Stone", "count": 7 },
+        { "item": "Stick", "count": 5 }
+      ]
+    },
+    {
+      "id": "Gloves",
+      "name": "Перчатки",
+      "components": [
+        { "item": "Needle", "count": 3 },
+        { "item": "Grass", "count": 25 },
+        { "item": "Feather", "count": 1 }
+      ]
+    },
+    {
+      "id": "Cloth",
+      "name": "Ткань",
+      "components": [
+        { "item": "Cotton", "count": 4 },
+        { "item": "Wood", "count": 12 },
+        { "item": "Grass", "count": 20 }
+      ]
+    }
+  ]
+}

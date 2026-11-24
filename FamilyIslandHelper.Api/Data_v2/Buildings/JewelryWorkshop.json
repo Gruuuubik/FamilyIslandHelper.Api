@@ -1,0 +1,40 @@
+{
+  "id": "JewelryWorkshop",
+  "name": "Ювелирная мастерская",
+  "items": [
+    {
+      "id": "Earrings",
+      "name": "Серьги",
+      "components": [
+        { "item": "Gold", "count": 2 },
+        { "item": "Grass", "count": 27 },
+        { "item": "Stick", "count": 22 }
+      ]
+    },
+    {
+      "id": "Bracelet",
+      "name": "Браслет",
+      "components": [
+        { "item": "Emerald", "count": 4 },
+        { "item": "Clay", "count": 12 }
+      ]
+    },
+    {
+      "id": "Tiara",
+      "name": "Тиара",
+      "components": [
+        { "item": "Clay", "count": 12 },
+        { "item": "Emerald", "count": 4 }
+      ]
+    },
+    {
+      "id": "SmallBox",
+      "name": "Шкатулка",
+      "components": [
+        { "item": "Rope", "count": 2 },
+        { "item": "Stick", "count": 18 },
+        { "item": "IronIngot", "count": 3 }
+      ]
+    }
+  ]
+}

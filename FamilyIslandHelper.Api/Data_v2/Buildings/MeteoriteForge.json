@@ -1,0 +1,42 @@
+{
+  "id": "MeteoriteForge",
+  "name": "Литейная мастерская",
+  "items": [
+    {
+      "id": "Nails",
+      "name": "Гвозди",
+      "components": [
+        { "item": "Iron", "count": 17 },
+        { "item": "Clay", "count": 7 },
+        { "item": "Wood", "count": 17 }
+      ]
+    },
+    {
+      "id": "IronPlate",
+      "name": "Железная пластина",
+      "components": [
+        { "item": "IronIngot", "count": 3 },
+        { "item": "Clay", "count": 12 },
+        { "item": "Grass", "count": 12 }
+      ]
+    },
+    {
+      "id": "IronPipe",
+      "name": "Железная труба",
+      "components": [
+        { "item": "SteelSheet", "count": 2 },
+        { "item": "Stone", "count": 22 },
+        { "item": "Grass", "count": 25 }
+      ]
+    },
+    {
+      "id": "Gear",
+      "name": "Шестерёнка",
+      "components": [
+        { "item": "Stone", "count": 35 },
+        { "item": "Wood", "count": 40 },
+        { "item": "Iron", "count": 40 }
+      ]
+    }
+  ]
+}

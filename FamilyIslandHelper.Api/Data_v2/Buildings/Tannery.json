@@ -1,0 +1,42 @@
+{
+  "id": "Tannery",
+  "name": "Кожевенная",
+  "items": [
+    {
+      "id": "Leather",
+      "name": "Кожа",
+      "components": [
+        { "item": "Clay", "count": 6 },
+        { "item": "Skin", "count": 2 },
+        { "item": "Stick", "count": 4 }
+      ]
+    },
+    {
+      "id": "Papyrus",
+      "name": "Пергамент",
+      "components": [
+        { "item": "Skin", "count": 2 },
+        { "item": "Grass", "count": 30 },
+        { "item": "Clay", "count": 30 }
+      ]
+    },
+    {
+      "id": "Cardboard",
+      "name": "Картон",
+      "components": [
+        { "item": "Iron", "count": 15 },
+        { "item": "Hammer", "count": 4 },
+        { "item": "Wood", "count": 15 }
+      ]
+    },
+    {
+      "id": "PaintedParchment",
+      "name": "Крашеный пергамент",
+      "components": [
+        { "item": "Grass", "count": 40 },
+        { "item": "Skin", "count": 1 },
+        { "item": "Clay", "count": 30 }
+      ]
+    }
+  ]
+}

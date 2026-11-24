@@ -1,0 +1,33 @@
+{
+  "id": "Apiary",
+  "name": "Пасека",
+  "items": [
+    {
+      "id": "Pollen",
+      "name": "Пыльца",
+      "components": [
+        { "item": "Stick", "count": 18 },
+        { "item": "Wood", "count": 10 },
+        { "item": "Grass", "count": 25 }
+      ]
+    },
+    {
+      "id": "BeesWax",
+      "name": "Пчелиный воск",
+      "components": [
+        { "item": "Clay", "count": 22 },
+        { "item": "Stick", "count": 25 },
+        { "item": "Wood", "count": 20 }
+      ]
+    },
+    {
+      "id": "Honey",
+      "name": "Мёд",
+      "components": [
+        { "item": "Wood", "count": 20 },
+        { "item": "Clay", "count": 15 },
+        { "item": "Grass", "count": 25 }
+      ]
+    }
+  ]
+}

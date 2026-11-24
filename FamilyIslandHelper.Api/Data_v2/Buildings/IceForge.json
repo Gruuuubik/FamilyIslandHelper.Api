@@ -1,0 +1,24 @@
+{
+  "id": "IceForge",
+  "name": "Ледяная мастерская",
+  "items": [
+    {
+      "id": "IceKnife",
+      "name": "Ледяной нож",
+      "components": [
+        { "item": "Stone", "count": 30 },
+        { "item": "Iron", "count": 30 },
+        { "item": "Wood", "count": 20 }
+      ]
+    },
+    {
+      "id": "IceAxe",
+      "name": "Ледяной топор",
+      "components": [
+        { "item": "Stick", "count": 50 },
+        { "item": "Stone", "count": 40 },
+        { "item": "Iron", "count": 50 }
+      ]
+    }
+  ]
+}

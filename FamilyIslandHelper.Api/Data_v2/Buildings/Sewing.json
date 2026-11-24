@@ -1,0 +1,15 @@
+{
+  "id": "Sewing",
+  "name": "Швейная мастерская",
+  "items": [
+    {
+      "id": "Apron",
+      "name": "Фартук",
+      "components": [
+        { "item": "Grass", "count": 35 },
+        { "item": "Wood", "count": 40 },
+        { "item": "Clay", "count": 50 }
+      ]
+    }
+  ]
+}

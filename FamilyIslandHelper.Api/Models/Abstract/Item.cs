@@ -8,6 +8,13 @@ namespace FamilyIslandHelper.Api.Models.Abstract
 	public abstract class Item
 	{
 		/// <summary>
+		/// Gets the identifier of the item. It is used to find the item (see <c>ItemHelper.FindItemByName</c>)
+		/// and it is a part of the name of the picture of the item.
+		/// </summary>
+		[ExcludeFromCodeCoverage]
+		public virtual string Id => GetType().Name;
+
+		/// <summary>
 		/// Gets the display name of the item (in Russian).
 		/// </summary>
 		public abstract string Name { get; }

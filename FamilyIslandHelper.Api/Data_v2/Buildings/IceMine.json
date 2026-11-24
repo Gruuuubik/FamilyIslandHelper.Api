@@ -1,0 +1,15 @@
+{
+  "id": "IceMine",
+  "name": "Каменоломня",
+  "items": [
+    {
+      "id": "GraniteCobblestone",
+      "name": "Гранитный булыжник",
+      "components": [
+        { "item": "Stone", "count": 35 },
+        { "item": "Clay", "count": 40 },
+        { "item": "Iron", "count": 40 }
+      ]
+    }
+  ]
+}

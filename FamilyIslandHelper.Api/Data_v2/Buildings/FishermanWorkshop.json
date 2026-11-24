@@ -1,0 +1,15 @@
+{
+  "id": "FishermanWorkshop",
+  "name": "Хижина рыбака",
+  "items": [
+    {
+      "id": "FishingRod",
+      "name": "Удочка",
+      "components": [
+        { "item": "Wood", "count": 30 },
+        { "item": "Iron", "count": 20 },
+        { "item": "Stick", "count": 20 }
+      ]
+    }
+  ]
+}

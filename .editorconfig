@@ -128,11 +128,3 @@ dotnet_style_prefer_auto_properties = true:silent
 
 # SA0001: XML comment analysis disabled
 dotnet_diagnostic.SA0001.severity = none
-
-# CS1591: Missing XML comment. The classes with game data (Name, Items, Components) describe themselves,
-# so XML comments are required for the public API (helpers and abstract models) only.
-[**/Models/{Buildings_v2,Items_v2}/*.cs]
-dotnet_diagnostic.CS1591.severity = none
-
-[**/Models/Resources_v2.cs]
-dotnet_diagnostic.CS1591.severity = none

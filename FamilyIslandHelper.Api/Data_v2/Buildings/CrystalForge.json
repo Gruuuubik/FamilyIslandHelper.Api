@@ -1,0 +1,14 @@
+{
+  "id": "CrystalForge",
+  "name": "Ледяная гончарная",
+  "items": [
+    {
+      "id": "IceBowl",
+      "name": "Ледяная миска",
+      "components": [
+        { "item": "Stick", "count": 25 },
+        { "item": "Iron", "count": 25 }
+      ]
+    }
+  ]
+}

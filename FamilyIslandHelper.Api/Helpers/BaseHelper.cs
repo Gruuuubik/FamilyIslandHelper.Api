@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilyIslandHelper.Api.Data;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -10,7 +11,7 @@ namespace FamilyIslandHelper.Api.Helpers
 	public abstract class BaseHelper
 	{
 		/// <summary>
-		/// The root namespace of the assembly. It is the prefix of the names of classes and embedded resources.
+		/// The root namespace of the assembly. It is the prefix of the names of embedded resources.
 		/// </summary>
 		protected const string MainNamespace = "FamilyIslandHelper.Api";
 
@@ -30,10 +31,11 @@ namespace FamilyIslandHelper.Api.Helpers
 			Prefix = "_v2";
 
 			FolderWithPictures = $"Pictures{Prefix}";
+			Data = GameData.Get(apiVersion);
 		}
 
 		/// <summary>
-		/// Gets the suffix of the API version that is used in the names of namespaces and picture folders, for example <c>_v2</c>.
+		/// Gets the suffix of the API version that is used in the names of picture folders, for example <c>_v2</c>.
 		/// </summary>
 		protected string Prefix { get; }
 
@@ -46,6 +48,8 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// Gets the assembly that contains the embedded pictures.
 		/// </summary>
 		protected Assembly Assembly { get; }
+
+		internal GameData Data { get; }
 
 		/// <summary>
 		/// Reads an embedded picture.

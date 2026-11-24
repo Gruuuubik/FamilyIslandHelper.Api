@@ -1,19 +1,23 @@
-﻿using FamilyIslandHelper.Api.Models.Abstract;
-using FamilyIslandHelper.Api.Models.Items_v2;
+﻿using FamilyIslandHelper.Api.Helpers;
+using FamilyIslandHelper.Api.Models.Abstract;
 using Xunit;
 
 namespace FamilyIslandHelper.Api.UnitTests
 {
 	public class ProducibleItemTests : BaseTest
 	{
+		private static readonly ItemHelper ItemHelper = new ItemHelper(ApiVersion.v2);
+
+		private static ProducibleItem GetItem(string itemName) => ItemHelper.CreateProducibleItem(itemName);
+
 		public static IEnumerable<object[]> ComponentsInfo_TestData()
 		{
-			yield return new object[] { new Rope(), 1, new List<string>
+			yield return new object[] { GetItem("Rope"), 1, new List<string>
 			{
 				"\tТрава(2 энергии) - 14 шт.",
 				"\tКамень(10 энергии) - 8 шт."
 			} };
-			yield return new object[] { new Rope(), 3, new List<string>
+			yield return new object[] { GetItem("Rope"), 3, new List<string>
 			{
 				"\tТрава(6 энергии) - 42 шт.",
 				"\tКамень(30 энергии) - 24 шт."
@@ -31,8 +35,8 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		public static IEnumerable<object[]> ToString_TestData()
 		{
-			yield return new object[] { new Rope(), 1, "Верёвка(108 энергии)" };
-			yield return new object[] { new Rope(), 3, "Верёвка(324 энергии)" };
+			yield return new object[] { GetItem("Rope"), 1, "Верёвка(108 энергии)" };
+			yield return new object[] { GetItem("Rope"), 3, "Верёвка(324 энергии)" };
 		}
 
 		[Theory]
@@ -46,35 +50,33 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		public static IEnumerable<object[]> GetProperties_TestData()
 		{
-			yield return new object[] { new Models.Buildings_v2.AlchemistLaboratory().Items };
-			yield return new object[] { new Models.Buildings_v2.Bench().Items };
-			yield return new object[] { new Models.Buildings_v2.CarpentryWorkshop().Items };
-			yield return new object[] { new Models.Buildings_v2.Forge().Items };
-			yield return new object[] { new Models.Buildings_v2.GlassWorkshop().Items };
-			yield return new object[] { new Models.Buildings_v2.HobbyCorner().Items };
-			yield return new object[] { new Models.Buildings_v2.JewelryWorkshop().Items };
-			yield return new object[] { new Models.Buildings_v2.Kiln().Items };
-			yield return new object[] { new Models.Buildings_v2.Knocker().Items };
-			yield return new object[] { new Models.Buildings_v2.Loom().Items };
-			yield return new object[] { new Models.Buildings_v2.MeteoriteForge().Items };
-			yield return new object[] { new Models.Buildings_v2.Mill().Items };
-			yield return new object[] { new Models.Buildings_v2.Mixer().Items };
-			yield return new object[] { new Models.Buildings_v2.Pottery().Items };
-			yield return new object[] { new Models.Buildings_v2.Sawmill().Items };
-			yield return new object[] { new Models.Buildings_v2.SewingWorkshop().Items };
-			yield return new object[] { new Models.Buildings_v2.ShamanWorkshop().Items };
-			yield return new object[] { new Models.Buildings_v2.Smelter().Items };
-			yield return new object[] { new Models.Buildings_v2.Tannery().Items };
-			yield return new object[] { new Models.Buildings_v2.Workshop().Items };
+			foreach (var buildingName in new BuildingHelper(ApiVersion.v2).GetBuildingsNames())
+			{
+				yield return new object[] { buildingName };
+			}
 		}
 
 		[Theory]
 		[MemberData(nameof(GetProperties_TestData))]
-		public void Given_ProducibleItem_When_GetProperties_Then_ReturnNotNullValues(List<ProducibleItem> producibleItems)
+		public void Given_ProducibleItem_When_GetProperties_Then_ReturnNotNullValues(string buildingName)
 		{
+			var producibleItems = new BuildingHelper(ApiVersion.v2).CreateBuilding(buildingName).Items;
+
+			Assert.NotEmpty(producibleItems);
 			Assert.All(producibleItems, (item) => Assert.NotNull(item.Name));
-			Assert.All(producibleItems, (item) => Assert.NotNull(item.BuildingToCreate));
 			Assert.All(producibleItems, (item) => Assert.NotEmpty(item.Components));
+			Assert.All(producibleItems, (item) => Assert.Equal(buildingName, item.BuildingToCreate.Id));
+		}
+
+		[Fact]
+		public void Given_ProducibleItem_When_ChangeReturnedComponents_Then_ItemIsNotChanged()
+		{
+			var item = GetItem("Rope");
+			var expectedCount = item.Components.Count;
+
+			item.Components.Clear();
+
+			Assert.Equal(expectedCount, item.Components.Count);
 		}
 	}
 }

@@ -1,0 +1,42 @@
+{
+  "id": "HobbyCorner",
+  "name": "Уголок хобби",
+  "items": [
+    {
+      "id": "Scissors",
+      "name": "Ножницы",
+      "components": [
+        { "item": "Clay", "count": 35 },
+        { "item": "Stone", "count": 25 },
+        { "item": "Iron", "count": 30 }
+      ]
+    },
+    {
+      "id": "CorrugatedPaper",
+      "name": "Гофрированная бумага",
+      "components": [
+        { "item": "Wood", "count": 18 },
+        { "item": "Clay", "count": 10 },
+        { "item": "Stone", "count": 12 }
+      ]
+    },
+    {
+      "id": "Paints",
+      "name": "Палитра",
+      "components": [
+        { "item": "Stick", "count": 22 },
+        { "item": "Wood", "count": 15 },
+        { "item": "Grass", "count": 20 }
+      ]
+    },
+    {
+      "id": "TubeOfGlue",
+      "name": "Тюбик клея",
+      "components": [
+        { "item": "Grass", "count": 25 },
+        { "item": "Stick", "count": 20 },
+        { "item": "Iron", "count": 15 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "FeedBarn",
+  "name": "Амбар с кормом",
+  "items": [
+    {
+      "id": "FoodForMammoth",
+      "name": "Корм для мамонта",
+      "components": [
+        { "item": "Stick", "count": 25 },
+        { "item": "Wood", "count": 25 },
+        { "item": "Grass", "count": 25 }
+      ]
+    },
+    {
+      "id": "FrozenFeed",
+      "name": "Морозный корм",
+      "components": [
+        { "item": "Grass", "count": 50 },
+        { "item": "Wheat", "count": 4 },
+        { "item": "Blueberry", "count": 4 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "Bench",
+  "name": "Верстак",
+  "items": [
+    {
+      "id": "BuildingTimber",
+      "name": "Строительный брус",
+      "components": [
+        { "item": "Wood", "count": 15 },
+        { "item": "Stick", "count": 15 },
+        { "item": "Knife", "count": 4 }
+      ]
+    },
+    {
+      "id": "Barrel",
+      "name": "Бочка",
+      "components": [
+        { "item": "Wood", "count": 17 },
+        { "item": "Nails", "count": 2 },
+        { "item": "Clay", "count": 22 }
+      ]
+    },
+    {
+      "id": "Trough",
+      "name": "Корыто",
+      "components": [
+        { "item": "SmoothBoard", "count": 2 },
+        { "item": "Grass", "count": 40 },
+        { "item": "Stone", "count": 25 }
+      ]
+    },
+    {
+      "id": "BrightBoomerang",
+      "name": "Яркий бумеранг",
+      "components": [
+        { "item": "Wood", "count": 22 },
+        { "item": "Stone", "count": 22 },
+        { "item": "Clay", "count": 25 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "Kiln",
+  "name": "Печь для обжига",
+  "items": [
+    {
+      "id": "BurntBrick",
+      "name": "Обожженный кирпич",
+      "components": [
+        { "item": "Brick", "count": 3 }
+      ]
+    },
+    {
+      "id": "Shingles",
+      "name": "Черепица",
+      "components": [
+        { "item": "SmoothBoard", "count": 3 },
+        { "item": "Clay", "count": 17 },
+        { "item": "Wood", "count": 10 }
+      ]
+    },
+    {
+      "id": "Cup",
+      "name": "Чашка",
+      "components": [
+        { "item": "Clay", "count": 15 },
+        { "item": "Amphora", "count": 2 },
+        { "item": "Wood", "count": 8 }
+      ]
+    },
+    {
+      "id": "Plate",
+      "name": "Тарелка",
+      "components": [
+        { "item": "Stick", "count": 30 },
+        { "item": "Clay", "count": 20 },
+        { "item": "Grass", "count": 20 }
+      ]
+    }
+  ]
+}

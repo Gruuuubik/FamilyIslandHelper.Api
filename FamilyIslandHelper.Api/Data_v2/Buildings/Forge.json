@@ -1,0 +1,41 @@
+{
+  "id": "Forge",
+  "name": "Кузница",
+  "items": [
+    {
+      "id": "Needle",
+      "name": "Игла",
+      "components": [
+        { "item": "Iron", "count": 4 },
+        { "item": "Grass", "count": 6 }
+      ]
+    },
+    {
+      "id": "Hammer",
+      "name": "Молот",
+      "components": [
+        { "item": "Iron", "count": 7 },
+        { "item": "Stone", "count": 5 },
+        { "item": "Wood", "count": 7 }
+      ]
+    },
+    {
+      "id": "Glass",
+      "name": "Стекло",
+      "components": [
+        { "item": "Stone", "count": 30 },
+        { "item": "Stick", "count": 32 },
+        { "item": "Wood", "count": 30 }
+      ]
+    },
+    {
+      "id": "Lock",
+      "name": "Замок",
+      "components": [
+        { "item": "IronIngot", "count": 2 },
+        { "item": "Stick", "count": 35 },
+        { "item": "Stone", "count": 30 }
+      ]
+    }
+  ]
+}

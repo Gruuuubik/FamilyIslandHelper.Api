@@ -1,13 +1,13 @@
 ﻿using FamilyIslandHelper.Api.Helpers;
 using FamilyIslandHelper.Api.Models.Abstract;
-using FamilyIslandHelper.Api.Models.Items_v2;
-using FamilyIslandHelper.Api.Models.Resources_v2;
 using Xunit;
 
 namespace FamilyIslandHelper.Api.UnitTests
 {
 	public class ItemHelperTests : BaseTest
 	{
+		private static readonly ItemHelper StaticItemHelper = new ItemHelper(ApiVersion.v2);
+
 		private ItemHelper itemHelper;
 
 		public ItemHelperTests()
@@ -39,15 +39,16 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v2, "Lace", typeof(Lace))]
-		[InlineData(ApiVersion.v2, "Stone", typeof(Stone))]
+		[InlineData(ApiVersion.v2, "Lace", typeof(ProducibleItem))]
+		[InlineData(ApiVersion.v2, "Stone", typeof(ResourceItem))]
 		public void When_FindItemByName_Then_ReturnCorrectItem(ApiVersion apiVersion, string itemName, Type expectedItemType)
 		{
 			itemHelper = new ItemHelper(apiVersion);
 
 			var actualItem = itemHelper.FindItemByName(itemName);
 
-			Assert.Equal(expectedItemType, actualItem.GetType());
+			Assert.IsAssignableFrom(expectedItemType, actualItem);
+			Assert.Equal(itemName, actualItem.Id);
 		}
 
 		[Theory]
@@ -60,34 +61,62 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Theory]
-		[InlineData(ApiVersion.v2, "Lace", typeof(Models.Items_v2.Lace))]
-		public void When_TryToCreateProducibleItem_Then_ReturnCorrectProducibleItem(ApiVersion apiVersion, string itemTypeString, Type expectedItemType)
+		[InlineData(ApiVersion.v2, "Lace")]
+		public void When_TryToCreateProducibleItem_Then_ReturnCorrectProducibleItem(ApiVersion apiVersion, string itemTypeString)
 		{
 			itemHelper = new ItemHelper(apiVersion);
 
 			var item = itemHelper.CreateProducibleItem(itemTypeString);
 
-			Assert.Equal(expectedItemType, item.GetType());
+			Assert.Equal(itemTypeString, item.Id);
 		}
 
 		[Theory]
-		[InlineData("Stone", typeof(Stone))]
-		public void When_TryToCreateResourceItem_Then_ReturnCorrectResourceItem(string itemTypeString, Type expectedItemType)
+		[InlineData("Stone")]
+		[InlineData("Cone123")]
+		public void When_TryToCreateProducibleItemForNotProducibleItem_Then_ThrowsException(string itemTypeString)
+		{
+			var exception = Assert.Throws<ArgumentException>(() => itemHelper.CreateProducibleItem(itemTypeString));
+
+			Assert.Equal("itemTypeString", exception.ParamName);
+		}
+
+		[Theory]
+		[InlineData("Stone")]
+		public void When_TryToCreateResourceItem_Then_ReturnCorrectResourceItem(string itemTypeString)
 		{
 			var item = itemHelper.CreateResourceItem(itemTypeString);
 
-			Assert.Equal(expectedItemType, item.GetType());
+			Assert.Equal(itemTypeString, item.Id);
 		}
+
+		[Theory]
+		[InlineData("Lace")]
+		[InlineData("Cone123")]
+		public void When_TryToCreateResourceItemForNotResource_Then_ThrowsException(string itemTypeString)
+		{
+			var exception = Assert.Throws<ArgumentException>(() => itemHelper.CreateResourceItem(itemTypeString));
+
+			Assert.Equal("itemTypeString", exception.ParamName);
+		}
+
+		[Fact]
+		public void When_FindSameItemTwice_Then_ReturnSameInstance()
+		{
+			Assert.Same(itemHelper.FindItemByName("Rope"), itemHelper.FindItemByName("Rope"));
+		}
+
+		private static Item GetItem(string itemName) => StaticItemHelper.FindItemByName(itemName)!;
 
 		public static IEnumerable<object[]> CompareItemsWithDifferentCount_TestData()
 		{
-			yield return new object[] { new Lace(), 2, new Lace(), 2,
+			yield return new object[] { GetItem("Lace"), 2, GetItem("Lace"), 2,
 				"2 'Шнурок' и 2 'Шнурок' равны по энергии." };
 
-			yield return new object[] { new Rope(), 5, new Wattle(), 3,
+			yield return new object[] { GetItem("Rope"), 5, GetItem("Wattle"), 3,
 				"3 'Плетень' выгоднее, чем 5 'Верёвка' по энергии." };
 
-			yield return new object[] { new Stone(), 5, new Grass(), 3,
+			yield return new object[] { GetItem("Stone"), 5, GetItem("Grass"), 3,
 				"3 'Трава' выгоднее, чем 5 'Камень' по энергии." };
 		}
 
@@ -102,10 +131,10 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 		public static IEnumerable<object[]> CompareItems_TestData()
 		{
-			yield return new object[] { new Lace(), new Lace(),
+			yield return new object[] { GetItem("Lace"), GetItem("Lace"),
 				"1 'Шнурок' и 1 'Шнурок' равны по энергии." };
 
-			yield return new object[] { new Wattle(), new Rope(),
+			yield return new object[] { GetItem("Wattle"), GetItem("Rope"),
 				"1 'Плетень' выгоднее, чем 1 'Верёвка' по энергии." };
 		}
 
@@ -164,13 +193,8 @@ namespace FamilyIslandHelper.Api.UnitTests
 			Assert.Equal(expectedNamesCount, actualNames.Count);
 		}
 
-		public static IEnumerable<object[]> ApiVersions()
-		{
-			yield return new object[] { ApiVersion.v2 };
-		}
-
 		[Theory]
-		[MemberData(nameof(ApiVersions))]
+		[InlineData(ApiVersion.v2)]
 		public void When_GetAllItemsOfAllBuildings_Then_AllItemsHavePictures(ApiVersion apiVersion)
 		{
 			var buildingHelper = new BuildingHelper(apiVersion);

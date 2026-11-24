@@ -1,0 +1,38 @@
+{
+  "id": "Mill",
+  "name": "Мельница",
+  "items": [
+    {
+      "id": "GoatFood",
+      "name": "Корм для коз",
+      "components": [
+        { "item": "Potherb", "count": 2 },
+        { "item": "Grass", "count": 2 }
+      ]
+    },
+    {
+      "id": "ChickenFood",
+      "name": "Корм для кур",
+      "components": [
+        { "item": "Grass", "count": 2 },
+        { "item": "Corn", "count": 2 }
+      ]
+    },
+    {
+      "id": "Flour",
+      "name": "Мука",
+      "components": [
+        { "item": "Wheat", "count": 5 },
+        { "item": "Stone", "count": 3 }
+      ]
+    },
+    {
+      "id": "CowFood",
+      "name": "Корм для коровы",
+      "components": [
+        { "item": "Potherb", "count": 12 },
+        { "item": "Tomato", "count": 9 }
+      ]
+    }
+  ]
+}

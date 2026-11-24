@@ -13,8 +13,6 @@ namespace FamilyIslandHelper.Api.Helpers
 	/// </summary>
 	public class BuildingHelper : BaseHelper
 	{
-		private readonly string buildingsNamespace;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BuildingHelper"/> class.
 		/// </summary>
@@ -22,7 +20,6 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <exception cref="NotSupportedException">The version is not supported. Only <see cref="ApiVersion.v2"/> is supported.</exception>
 		public BuildingHelper(ApiVersion apiVersion) : base(apiVersion)
 		{
-			buildingsNamespace = $"{MainNamespace}.Models.Buildings{Prefix}";
 			FolderWithBuildingsPictures = Path.Combine(FolderWithPictures, "Buildings");
 		}
 
@@ -32,27 +29,25 @@ namespace FamilyIslandHelper.Api.Helpers
 		public string FolderWithBuildingsPictures { get; }
 
 		/// <summary>
-		/// Gets the class names and display names of all buildings.
+		/// Gets the identifiers and display names of all buildings.
 		/// </summary>
-		/// <returns>The buildings: <see cref="BuildingInfo.Value"/> is the name of the class, <see cref="BuildingInfo.Name"/> is the display name.</returns>
+		/// <returns>The buildings ordered by identifier: <see cref="BuildingInfo.Value"/> is the identifier, <see cref="BuildingInfo.Name"/> is the display name.</returns>
 		public List<BuildingInfo> GetBuildingsClasses()
 		{
-			var buildingsClasses = ClassHelper.GetClasses(buildingsNamespace);
-
-			return buildingsClasses.Select(bc => new BuildingInfo
+			return Data.Buildings.Select(b => new BuildingInfo
 			{
-				Value = bc.Name,
-				Name = CreateBuilding(bc.Name).Name
+				Value = b.Id,
+				Name = b.Name
 			}).ToList();
 		}
 
 		/// <summary>
-		/// Creates a building by the name of its class.
+		/// Gets a building by its identifier.
 		/// </summary>
-		/// <param name="buildingName">The name of the class of the building, for example <c>Forge</c>.</param>
-		/// <returns>A new instance of the building.</returns>
+		/// <param name="buildingName">The identifier of the building, for example <c>Forge</c>.</param>
+		/// <returns>The building. The same instance is returned on every call.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="buildingName"/> is <see langword="null"/>.</exception>
-		/// <exception cref="TypeLoadException">There is no building with such name.</exception>
+		/// <exception cref="ArgumentException">There is no building with such identifier.</exception>
 		public Building CreateBuilding(string buildingName)
 		{
 			if (buildingName == null)
@@ -60,31 +55,31 @@ namespace FamilyIslandHelper.Api.Helpers
 				throw new ArgumentNullException(nameof(buildingName));
 			}
 
-			var buildingType = Type.GetType($"{buildingsNamespace}.{buildingName}", true);
-			return Activator.CreateInstance(buildingType) as Building;
+			return Data.FindBuilding(buildingName)
+				?? throw new ArgumentException($"Building '{buildingName}' was not found.", nameof(buildingName));
 		}
 
 		/// <summary>
-		/// Gets the names of the classes of all buildings.
+		/// Gets the identifiers of all buildings.
 		/// </summary>
-		/// <returns>The names of the classes.</returns>
+		/// <returns>The identifiers ordered alphabetically.</returns>
 		public List<string> GetBuildingsNames()
 		{
-			return ClassHelper.GetClassesNames(buildingsNamespace).ToList();
+			return Data.Buildings.Select(b => b.Id).ToList();
 		}
 
 		/// <summary>
-		/// Gets the names of the classes of the items a building produces.
+		/// Gets the identifiers of the items a building produces.
 		/// </summary>
-		/// <param name="buildingName">The name of the class of the building.</param>
-		/// <returns>The names of the classes of the items in the order they are declared in the building.</returns>
+		/// <param name="buildingName">The identifier of the building.</param>
+		/// <returns>The identifiers of the items in the order they are declared in the game data.</returns>
 		/// <exception cref="ArgumentNullException"><paramref name="buildingName"/> is <see langword="null"/>.</exception>
-		/// <exception cref="TypeLoadException">There is no building with such name.</exception>
+		/// <exception cref="ArgumentException">There is no building with such identifier.</exception>
 		public List<string> GetItemsOfBuilding(string buildingName)
 		{
 			var building = CreateBuilding(buildingName);
 
-			return building.Items.Select(i => i.GetType().Name).ToList();
+			return building.Items.Select(i => i.Id).ToList();
 		}
 
 		/// <summary>
@@ -93,7 +88,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <remarks>
 		/// Uses System.Drawing.Common, so on .NET 6 and later it works on Windows only. Use <see cref="GetBuildingImageStreamByName(string)"/> to get the raw PNG.
 		/// </remarks>
-		/// <param name="buildingName">The name of the class of the building.</param>
+		/// <param name="buildingName">The identifier of the building.</param>
 		/// <returns>The picture.</returns>
 		public Image GetBuildingImageByName(string buildingName)
 		{
@@ -103,7 +98,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <summary>
 		/// Gets the picture of a building as a PNG stream.
 		/// </summary>
-		/// <param name="buildingName">The name of the class of the building.</param>
+		/// <param name="buildingName">The identifier of the building.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
 		public MemoryStream GetBuildingImageStreamByName(string buildingName)
 		{
