@@ -90,6 +90,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// </remarks>
 		/// <param name="buildingName">The identifier of the building.</param>
 		/// <returns>The picture.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		public Image GetBuildingImageByName(string buildingName)
 		{
 			return Image.FromStream(GetBuildingImageStreamByName(buildingName));
@@ -100,6 +101,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// </summary>
 		/// <param name="buildingName">The identifier of the building.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		public MemoryStream GetBuildingImageStreamByName(string buildingName)
 		{
 			var imagePath = $"{MainNamespace}.{FolderWithBuildingsPictures}.{buildingName + ImageExtension}";

@@ -54,12 +54,21 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <summary>
 		/// Reads an embedded picture.
 		/// </summary>
-		/// <param name="imagePath">The name of the embedded resource. Backslashes are replaced with dots.</param>
+		/// <param name="imagePath">The name of the embedded resource. Both kinds of path separators (<c>\</c> and <c>/</c>) are replaced with dots.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		protected MemoryStream GetImageStreamByImagePath(string imagePath)
 		{
-			using (var stream = Assembly.GetManifestResourceStream(imagePath.Replace("\\", ".")))
+			// Paths are built with Path.Combine, so they contain "\" on Windows and "/" on Linux and macOS
+			var resourceName = imagePath.Replace('\\', '.').Replace('/', '.');
+
+			using (var stream = Assembly.GetManifestResourceStream(resourceName))
 			{
+				if (stream == null)
+				{
+					throw new FileNotFoundException($"The picture '{resourceName}' was not found in the assembly.", resourceName);
+				}
+
 				var memoryStream = new MemoryStream();
 				stream.CopyTo(memoryStream);
 				memoryStream.Position = 0;

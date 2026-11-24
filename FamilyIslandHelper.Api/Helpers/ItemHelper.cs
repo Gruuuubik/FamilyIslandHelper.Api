@@ -197,6 +197,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <param name="buildingName">The identifier of the building that produces the item.</param>
 		/// <param name="itemName">The identifier of the item.</param>
 		/// <returns>The picture.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		public Image GetItemImageByName(string buildingName, string itemName)
 		{
 			return Image.FromStream(GetItemImageStreamByName(buildingName, itemName));
@@ -208,6 +209,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// <param name="buildingName">The identifier of the building that produces the item.</param>
 		/// <param name="itemName">The identifier of the item.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		public MemoryStream GetItemImageStreamByName(string buildingName, string itemName)
 		{
 			var imagePath = $"{MainNamespace}.{GetItemImagePathByName(buildingName, itemName)}";
@@ -232,6 +234,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// </remarks>
 		/// <param name="resourceName">The identifier of the resource.</param>
 		/// <returns>The picture.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		public Image GetResourceImageByName(string resourceName)
 		{
 			return Image.FromStream(GetResourceImageStreamByName(resourceName));
@@ -242,6 +245,7 @@ namespace FamilyIslandHelper.Api.Helpers
 		/// </summary>
 		/// <param name="resourceName">The identifier of the resource.</param>
 		/// <returns>A stream with the picture, positioned at the beginning.</returns>
+		/// <exception cref="FileNotFoundException">There is no such picture in the assembly.</exception>
 		public MemoryStream GetResourceImageStreamByName(string resourceName)
 		{
 			var imagePath = $"{MainNamespace}.{FolderWithResourcesPictures}.{resourceName + ImageExtension}";
