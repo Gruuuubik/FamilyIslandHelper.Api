@@ -65,6 +65,20 @@ namespace FamilyIslandHelper.Api.UnitTests
 		}
 
 		[Fact]
+		public void When_LoadEmbeddedData_Then_IdsContainOnlyLatinLettersAndDigits()
+		{
+			var buildingHelper = new BuildingHelper(ApiVersion.v2);
+			var itemHelper = new ItemHelper(ApiVersion.v2);
+
+			var ids = buildingHelper.GetBuildingsNames()
+				.Concat(buildingHelper.GetBuildingsNames().SelectMany(b => buildingHelper.GetItemsOfBuilding(b)))
+				.Concat(itemHelper.GetResourcesNames());
+
+			// Ids are typed in code and are names of the picture files, so look-alike letters (for example Cyrillic "С") are not allowed.
+			Assert.All(ids, id => Assert.Matches("^[A-Za-z0-9]+$", id));
+		}
+
+		[Fact]
 		public void When_GetNotSupportedVersion_Then_ThrowsException()
 		{
 			Assert.Throws<NotSupportedException>(() => GameData.Get((ApiVersion)42));
