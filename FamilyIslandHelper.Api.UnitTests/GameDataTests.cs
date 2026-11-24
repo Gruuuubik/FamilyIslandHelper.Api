@@ -1,6 +1,5 @@
 ﻿using FamilyIslandHelper.Api.Data;
 using FamilyIslandHelper.Api.Helpers;
-using FamilyIslandHelper.Api.Models.Abstract;
 using Xunit;
 
 namespace FamilyIslandHelper.Api.UnitTests
@@ -91,7 +90,9 @@ namespace FamilyIslandHelper.Api.UnitTests
 
 			Assert.Equal(["Wood", "Egg"], data.Resources.Select(r => r.Id));
 			Assert.Equal(4, data.FindResource("Wood")!.EnergyCost);
-			Assert.IsAssignableFrom<ResourceItem>(data.FindResource("Egg"));
+			// a resource that costs no energy is shown by its name only
+			Assert.Equal("Яйцо", data.FindResource("Egg")!.ToString(3));
+			Assert.Equal("Дерево(12 энергии)", data.FindResource("Wood")!.ToString(3));
 
 			var building = data.FindBuilding("Bench")!;
 			Assert.Equal(["Plank", "Cake"], building.Items.Select(i => i.Id));
